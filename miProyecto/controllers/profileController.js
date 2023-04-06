@@ -1,6 +1,6 @@
 const profileController = {
     prueba2: function(req, res) {
-        res.render('profile', { title: 'Proyecto' });
+        res.render('profiles', { title: 'Proyecto' });
       }
 }
 

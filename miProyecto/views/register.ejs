@@ -12,30 +12,32 @@
 				<h2 class="products-title">Registrate</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> 
-                <form action="/index" method="get">
-                        <label for="email">Email:</label>
-                        <input type="email" name="email" value="">
+	<h2 class="col-12">
+    <!-- Formulario -->
+    <form action="/" method="get">
+      <label for="email">Email:</label>
+      <input type="email" name="email" value="">
 
-                        <label for="email">Nombre de usuario: </label>
-                        <input type="text" name="usuario" value="">
+      <label for="usuario">Nombre de usuario: </label>
+      <input type="text" name="usuario" value="">
                         
-                        <label for="email">Contraseña:</label>
-                        <input type="password" name="contraseña" value="">
+      <label for="contraseña">Contraseña:</label>
+      <input type="password" name="contraseña" value="">
                         
-                        <label for="email">Fecha de nacimiento</label>
-                        <input type="date" name="fechaNacimiento" value="">
+      <label for="fechaNacimiento">Fecha de nacimiento</label>
+      <input type="date" name="fechaNacimiento" value="">
                         
-                        <label for="email">Número de documento</label>
-                        <input type="number" name="numeroDocumento" value="">
+      <label for="numeroDocumento">Número de documento</label>
+      <input type="number" name="numeroDocumento" value="">
                         
-                        <label for="email">Foto de perfil:</label>
-                        <input type="text" name="fotoPerfil" value="">
+      <label for="fotoPerfil">Foto de perfil:</label>
+      <input type="text" name="fotoPerfil" value="">
 
-                        <button type="submit">Enviar</button>
-                </form>
-			</h2>
-
+      <button type="submit">Enviar</button>
+    </form>
+    <!-- Formulario -->
+	</h2>
+  
 	<%- include('./partials/footer') %>
   </body>
 </html>

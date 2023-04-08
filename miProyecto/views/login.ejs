@@ -15,21 +15,22 @@
 				<h2 class="products-title">Ingresar</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá va el formulario de login. <br>
+			<h2 class="col-12">
 			<!-- Formulario -->
-			<form action="/index" method="get">
-						<label for="email">Nombre de usuario: </label>
-                        <input type="text" name="usuario" value="">
+			<form action="/" method="get">
+						<label for="email">Mail del usuario:</label>
+                        <input type="email" name="usuario" value="">
 
-						<label for="email">Contraseña:</label>
+						<label for="contraseña">Contraseña:</label>
                         <input type="password" name="contraseña" value="">
 
-						<label for="email">Recordarme:</label>
+						<label for="recordarme">Recordarme:</label>
                         <input type="checkbox" name="recordarme" value="">
 
                         <button type="submit">Enviar</button>
 			</form>
 			</h2>
+			<!-- Formulario -->
 	<!-- footer -->
     <%- include('./partials/footer') %>
 	<!-- /footer -->

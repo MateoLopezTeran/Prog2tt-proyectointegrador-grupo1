@@ -1,8 +1,9 @@
 var express = require('express');
-const registerController = require('../controllers/registerController');
 var router = express.Router();
 
+const registerController = require('../controllers/registerController');
+
 /* GET register page */
-router.get('/', registerController.prueba4)
+router.get('/', registerController.register)
 
 module.exports = router;

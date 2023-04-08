@@ -1,6 +1,6 @@
 const indexController = {
-    prueba: function(req, res) {
-        res.render('index', { title: 'Proyecto' });
+    index: function(req, res) {
+        res.render('index');
       }
 }
 

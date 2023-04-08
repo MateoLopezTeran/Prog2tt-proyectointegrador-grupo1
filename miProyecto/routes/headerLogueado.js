@@ -1,8 +1,9 @@
 var express = require('express');
-const headerLogueadoController = require('../controllers/headerLogueadoController');
 var router = express.Router();
 
-/* GET home page */
-router.get('/', headerLogueadoController.prueba3);
+const headerLogueadoController = require('../controllers/headerLogueadoController');
+
+/* GET headerLogueado page */
+router.get('/', headerLogueadoController.headerLogueado);
 
 module.exports = router;

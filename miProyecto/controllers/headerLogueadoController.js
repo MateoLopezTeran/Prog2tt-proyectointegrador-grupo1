@@ -1,6 +1,6 @@
 const headerLogueadoController = {
-    prueba3: function(req, res) {
-        res.render('headerLogueado', { title: 'Proyecto' });
+    headerLogueado: function(req, res) {
+        res.render('headerLogueado');
       }
 }
 

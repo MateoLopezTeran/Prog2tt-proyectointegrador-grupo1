@@ -3,6 +3,6 @@ var router = express.Router();
 
 const profileController = require('../controllers/profileController');
 
-router.get('/', profileController.profiles);
+router.get('/', profileController.usuario);
 
 module.exports = router;

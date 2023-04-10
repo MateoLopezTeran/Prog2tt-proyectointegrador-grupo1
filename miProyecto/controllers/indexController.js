@@ -11,5 +11,5 @@ const indexController = {
     res.render('searchResults');
   }
 }
-
+ 
 module.exports = indexController

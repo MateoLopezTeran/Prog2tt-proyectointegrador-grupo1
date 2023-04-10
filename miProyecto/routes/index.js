@@ -8,4 +8,4 @@ router.get('/', indexController.index);
 router.get('/headerLogueado', indexController.headerLogueado);
 router.get('/searchresults', indexController.searchResults);
 
-module.exports = router;
+module.exports = router; 

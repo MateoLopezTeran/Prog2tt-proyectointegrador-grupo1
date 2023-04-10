@@ -1,3 +1,5 @@
+const datamodule = require('../data/datamodule')
+
 const indexController = {
   index: function(req, res) {
     res.render('index');
@@ -8,7 +10,9 @@ const indexController = {
   },
 
   searchResults: function (req, res) {
-    res.render('searchResults');
+    res.render('searchResults', {
+      datamodule: datamodule
+    });
   }
 }
  

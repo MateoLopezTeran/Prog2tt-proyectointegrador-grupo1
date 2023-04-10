@@ -8,42 +8,42 @@ const mercadoLiebre = {
         fotoPerfil: 'foto'
     },
     productos: {
-        imagen: 'a',
+        imagen: "/images/products/computadora_1.webp",
         nombreProducto: 'Notebook Asus',
         descripcion: 'La notebook Asus X515EA es una solución tanto para trabajar y estudiar como para entretenerte',
         fechaCarga: 21/03/2023,
 
-        imagen: 'a',
+        imagen: '/images/products/computadora_2.webp',
         nombreProducto: 'Macbook Air M2',
         descripcion: 'La notebook Macbook Air M2 es una solución tanto para trabajar y estudiar como para entretenerte',
         fechaCarga: 21/03/2023,
 
-        imagen: 'a',
+        imagen: '/images/products/computadora_3.webp',
         nombreProducto: 'Macbook Pro 13 inch',
         descripcion: 'La Macbook Pro 13 inch es la mezcla de la innovacion y la eficazia',
         fechaCarga: 21/03/2023,
 
-        imagen: 'a',
+        imagen: '/images/products/computadora_4.webp',
         nombreProducto: 'Dell Inpiron',
         descripcion: 'La Dell Inspiron es ideal para trabajar',
         fechaCarga: 21/03/2023,
 
-        imagen: 'a',
+        imagen: '/images/products/computadora_5.webp',
         nombreProducto: 'Acer Nitro 5',
         descripcion: 'La Acer Nitro 5 es ideal para el gaming',
         fechaCarga: 21/03/2023,
 
-        imagen: 'a',
+        imagen: '/images/products/computadora_6.webp',
         nombreProducto: 'Aser Predator Elios 300',
         descripcion: 'La Aser Predator Elios 300 es una laptop con refrigeracion avanzazda',
         fechaCarga: 21/03/2023,
 
-        imagen: 'a',
+        imagen: '/images/products/computadora_7.webp',
         nombreProducto: 'Dell Latitude',
         descripcion: 'La Dell Latitude tiene la memoria ideal para el trabajo',
         fechaCarga: 21/03/2023,
 
-        imagen: 'a',
+        imagen: '/images/products/computadora_8.webp',
         nombreProducto: 'Asus Rog Strix',
         descripcion: 'La Asus Rog Strix tiene el sistema de refrigeracion ideal para el gaming',
         fechaCarga: 21/03/2023,

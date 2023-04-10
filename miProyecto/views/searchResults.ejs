@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <%- include('./partials/head') %>
+
+  <body>
+	<%- include('./partials/header') %>
+
+    <div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Resultados de búsqueda</h2>
+			</div>
+            <!-- Show the "busqueda" of products -->
+
+                    <% for( let i = 0; i < 4; i++ ) { %>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <section class="product-box">
+                                <a href="/products">
+                                    <figure class="product-box_image">
+                                        <img src=<%= datamodule.productos[i].imagen %> alt="cafetera moulinex">
+                                    </figure>
+                                    <article class="product-box_data">
+                                        <h2><%= datamodule.productos[i].nombreProducto %></h2>
+                                        <p><%= datamodule.productos[i].descripcion %></p>
+                                        <p>Comentarios: 12</p>
+                                    </article>
+                                </a>
+                            </section>
+                        </div>
+                    <% } %>
+
+	<%- include('./partials/footer') %>
+  </body>
+</html>

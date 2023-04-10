@@ -11,7 +11,9 @@ const indexController = {
   },
 
   searchResults: function (req, res) {
-    res.render('searchResults');
+    res.render('searchResults', {
+      datamodule: datamodule
+    });
   }
 }
  

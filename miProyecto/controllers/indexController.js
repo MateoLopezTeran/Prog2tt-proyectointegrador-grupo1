@@ -2,7 +2,8 @@ const datamodule = require('../data/datamodule')
 
 const indexController = {
   index: function(req, res) {
-    res.render('index');
+    res.render('index', {
+      data: datamodule.productos});
   },
 
   headerLogueado: function(req, res) {

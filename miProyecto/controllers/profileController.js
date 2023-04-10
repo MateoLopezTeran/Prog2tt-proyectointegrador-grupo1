@@ -8,7 +8,8 @@ const profileController = {
     contraseña: datamodule.usuario.contraseña,
     fechaNacimiento: datamodule.usuario.fechaNacimiento,
     numeroDocumento: datamodule.usuario.numeroDocumento,
-    fotoPerfil: datamodule.usuario.fotoPerfil
+    fotoPerfil: datamodule.usuario.fotoPerfil,
+    data: datamodule.productos
     })
   },
   

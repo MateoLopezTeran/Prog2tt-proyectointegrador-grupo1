@@ -1,14 +1,14 @@
-const mercadoLiebre = require('../data/mercadoLiebre')
+const datamodule = require('../data/datamodule')
 
 const profileController = {
   usuario: function (req, res) {
     res.render('profiles', {  
-    email: mercadoLiebre.usuario.email,
-    nombreUsuario: mercadoLiebre.usuario.nombreUsuario,
-    contraseña: mercadoLiebre.usuario.contraseña,
-    fechaNacimiento: mercadoLiebre.usuario.fechaNacimiento,
-    numeroDocumento: mercadoLiebre.usuario.numeroDocumento,
-    fotoPerfil: mercadoLiebre.usuario.fotoPerfil
+    email: datamodule.usuario.email,
+    nombreUsuario: datamodule.usuario.nombreUsuario,
+    contraseña: datamodule.usuario.contraseña,
+    fechaNacimiento: datamodule.usuario.fechaNacimiento,
+    numeroDocumento: datamodule.usuario.numeroDocumento,
+    fotoPerfil: datamodule.usuario.fotoPerfil
     })
   },
   
@@ -18,7 +18,13 @@ const profileController = {
 
   login: function (req, res) {
     res.render('login')
-  }
+  },
+
+  profilesEdit: function (req, res) {
+    res.render('profilesEdit', {
+      nombreUsuario: datamodule.usuario.nombreUsuario
+    })
+  },
 }
 
 module.exports = profileController

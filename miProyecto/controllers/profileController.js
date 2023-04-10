@@ -10,6 +10,14 @@ const profileController = {
     numeroDocumento: mercadoLiebre.usuario.numeroDocumento,
     fotoPerfil: mercadoLiebre.usuario.fotoPerfil
     })
+  },
+  
+  regitser: function (req, res) {
+    res.render('register')
+  },
+
+  login: function (req, res) {
+    res.render('login')
   }
 }
 

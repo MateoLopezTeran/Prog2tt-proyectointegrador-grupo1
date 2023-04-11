@@ -69,7 +69,7 @@ hr {
 /*====== Main Header ======*/
 .main-header {
   padding: 15px 0;
-  background-color: var(--yellow);
+  background-color: rgb(77, 8, 77);
 }
 
 .main-header_home-link,
@@ -81,6 +81,7 @@ hr {
   font-size: 1.5em;
   margin-top: 20px;
   text-align: center;
+  color: violet;
 }
 
 .search-form {
@@ -172,7 +173,8 @@ hr {
 .products-title {
   font-size: 2.4em;
   font-weight: 400;
-  color: var(--gray);
+  color: pink;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .product-box {
@@ -321,6 +323,7 @@ hr {
 .product-detail-title {
   font-weight: 400;
   font-size: 2.8em;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .product-detail-description {
@@ -469,6 +472,7 @@ textarea.form-input {
 .main-title{
   font-size: 25px;
   margin-bottom: 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .btn{
@@ -501,6 +505,8 @@ textarea.form-input {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: violet;
   }
 
   .left-navbar a,

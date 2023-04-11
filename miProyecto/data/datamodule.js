@@ -79,26 +79,31 @@ const datamodule = {
         }]
     ,
     comentarios: [{
+        id: 1,
         nombreUsuario: 'Mateo Lopez Teran',
-        textoDelComentario: 'Muy buen producto, muy confiableel proveedor.',
+        textoDelComentario: 'Muy buen producto, muy confiable proveedor.',
         imagen: '/images/users/usuario1.png'
     },
     {
+        id: 2,
         nombreUsuario: 'Augusto Augier',
         textoDelComentario: 'Muy mal producto, poco confiable, me vino el cargador fallado pero buen servicio.',
         imagen: '/images/users/usuario2.png'
     },
     {
+        id: 3,
         nombreUsuario: 'Lucio Freixas',
         textoDelComentario: 'No puedo hablar mucho ya que solo tiene una semana de uso pero incluye todo lo que dice incluir, muy confiable.',
         imagen: '/images/users/usuario3.png'
     },
     {
+        id: 4,
         nombreUsuario: 'Brian Gomez',
         textoDelComentario: 'Gran computadora, viene funcionando tal cual se esperaba',
         imagen: '/images/users/usuario4.png'
     },
     {
+        id: 5,
         nombreUsuario: 'Miguel Raad',
         textoDelComentario: 'Supero mis expectativas, muy recomendable',
         imagen: '/images/users/usuario5.png'

@@ -6,7 +6,7 @@
 <!-- product detail -->
 <div class="container products-wrapper">
     <div class="d-flex align-items-center">
-        <h2 class="products-title">Nombre del producto</h2> 
+        <h2 class="products-title"><%= producto.nombreProducto %></h2> 
         <p class="product-detail-description">
             <a href="/productsAdd">Editar</a>
         </p>
@@ -22,48 +22,16 @@
             </article>
             <div class="col-12 col-lg-4">
                 <section class="comments">
-                    <article>
-                        <img src="/images/users/usuario1.png" alt="">
-                        <div class="data">
-                            <p class="user">
-                            <strong> <a href="/profiles">Nombre usuario: </a> </strong>
-                             Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora doloribus enim aspernatur fugit corrupti suscipit sit dolore magnam, praesentium explicabo inventore molestias facilis labore. Fugit ipsa mollitia odit inventore consequuntur.</p>
-                        </div>
-                    </article>
-                    <article>
-                        <img src="/images/users/usuario2.png" alt="">
-                        <div class="data">
-                            <p class="user">
-                                <strong> <a href="/profiles">Nombre usuario: </a> </strong>
-                                Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur.</p>
-                        </div>
-                    </article>
-                    <article>
-                        <img src="/images/users/usuario3.png" alt="">
-                        <div class="data">
-                            <p class="user">
-                                <strong> <a href="/profiles">Nombre usuario: </a> </strong>
-                                Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                </p>
-                        </div>
-                    </article>
-                    <article>
-                        <img src="/images/users/usuario4.png" alt="">
-                        <div class="data">
-                            <p class="user">
-                                <strong> <a href="/profiles">Nombre usuario: </a> </strong>
-                                Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet.</p>
-                        </div>
-                    </article>
-                    <article>
-                        <img src="/images/users/usuario5.png" alt="">
-                        <div class="data">
-                            <p class="user">
-                                <strong> <a href="/profiles">Nombre usuario: </a> </strong>
-                                Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Tempora doloribus enim aspernatur fugit corrupti suscipit sit dolore</p>
-                        </div>
-                    </article>
+                    <% for( let i = 0; i < 5; i++ ) { %>
+                        <article>
+                            <img src="<%= comentario.imagen %>" alt="">
+                            <div class="data">
+                                <p class="user">
+                                <strong> <a href="/profiles"><%= comentario.nombreUsuario %></a> </strong>
+                                <%= comentario.textoDelComentario %></p>
+                            </div>
+                        </article>
+                    <% } %>
 
                 </section>
                 <form class="form" action="" method="POST">

@@ -43,11 +43,11 @@ foreign key				(producto_id) references productos(id)
 );
 
 -- Usuarios
-insert into usuarios values(default, 'juanperez@gmail.com', 'juan1234', '', '2003-03-03', 45415555, default, default);
-insert into usuarios values(default, 'mlopezteran@udesa.edu.ar', 'wawateran', '', '2003-03-03', 45415344, default, default);
-insert into usuarios values(default, 'aaugier@udesa.edu.ar', 'coloso21', '', '2003-03-03', 45415333, default, default);
-insert into usuarios values(default, 'lfreixas@udesa.edu.ar', 'luchito22', '', '2003-03-03', 45415362, default, default);
-insert into usuarios values(default, 'fdeangelis@udesa.edu.ar', 'elcuasi', '', '2003-03-03', 45415362, default, default);
+insert into usuarios values(default, 'mlopezteran@udesa.edu.ar', 'wawateran', '/images/users/usuario1.png', '2003-03-03', 45415555, default, default);
+insert into usuarios values(default, 'aaugier@udesa.edu.ar', 'coloso21', '/images/users/usuario2.png', '2003-03-03', 45415344, default, default);
+insert into usuarios values(default, 'lfreixas@udesa.edu.ar', 'luchito22', '/images/users/usuario3.png', '2003-03-03', 45415333, default, default);
+insert into usuarios values(default, 'bgomez@udesa.edu.ar', 'brian123', '/images/users/usuario4.png', '2003-03-03', 45415362, default, default);
+insert into usuarios values(default, 'mraad@udesa.edu.ar', 'miguelraad123', '/images/users/usuario5.png', '2003-03-03', 45415362, default, default);
 
 -- Posteos
 insert into productos values(default, 'Notebook Asus', 'La notebook Asus X515EA es una solución tanto para trabajar y estudiar como para entretenerte', 1, default, default);

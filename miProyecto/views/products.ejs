@@ -22,16 +22,16 @@
             </article>
             <div class="col-12 col-lg-4">
                 <section class="comments">
-                    <% for( let i = 0; i < 5; i++ ) { %>
-                        <article>
-                            <img src="<%= comentario.imagen %>" alt="">
-                            <div class="data">
-                                <p class="user">
-                                <strong> <a href="/profiles"><%= comentario.nombreUsuario %></a> </strong>
-                                <%= comentario.textoDelComentario %></p>
-                            </div>
-                        </article>
-                    <% } %>
+                        <% for( let i = 0; i < 5; i++ ) { %>
+                            <article>
+                                <img src="<%= comentario.comentarios[i].imagen %>" alt="">
+                                <div class="data">
+                                    <p class="user">
+                                    <strong> <a href="/profiles"><%= comentario.comentarios[i].nombreUsuario %></a> </strong>
+                                    <%= comentario.comentarios[i].textoDelComentario %></p>
+                                </div>
+                            </article>
+                        <% } %> 
 
                 </section>
                 <form class="form" action="" method="POST">

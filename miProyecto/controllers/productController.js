@@ -9,16 +9,17 @@ const productController = {
         productos = datamodule.productos[i];
       }
     };
-
+    
     let comentarios = null;
     for (let i = 0; i < datamodule.comentarios.length; i++) {
       if (id == datamodule.comentarios[i].id) {
-        comentarios = datamodule.comentarios[i];
+        comentarios = datamodule;
       }
     };
   res.render('products', {
     producto: productos,
     comentario: comentarios
+
     });
   },
 

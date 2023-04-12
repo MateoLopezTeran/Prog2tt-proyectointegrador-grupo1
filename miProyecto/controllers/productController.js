@@ -16,7 +16,7 @@ const productController = {
         comentarios = datamodule;
       }
     };
-  res.render('products', {
+  return res.render('products', {
     producto: productos,
     comentario: comentarios
 
@@ -24,7 +24,9 @@ const productController = {
   },
 
   productsAdd: function(req, res) {
-    res.render('productsAdd')
+    return res.render('productsAdd', {
+      usuario: datamodule.usuario
+    })
   },
 }
 

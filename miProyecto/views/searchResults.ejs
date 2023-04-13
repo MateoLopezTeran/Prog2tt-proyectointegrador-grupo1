@@ -11,23 +11,22 @@
 				<h2 class="products-title">Resultados de búsqueda</h2>
 			</div>
             <!-- Show the "busqueda" of products -->
-
-                    <% for( let i = 0; i < 4; i++ ) { %>
-                        <div class="col-12 col-sm-6 col-lg-3">
-                            <section class="product-box">
-                                <a href="../products/<%= data[i].id %>">
-                                    <figure class="product-box_image">
-                                        <img src=<%= data[i].imagen %> alt="cafetera moulinex">
-                                    </figure>
-                                    <article class="product-box_data">
-                                        <h2><%= data[i].nombreProducto %></h2>
-                                        <p><%= data[i].descripcion %></p>
-                                        <p>Comentarios: 12</p>
-                                    </article>
-                                </a>
-                            </section>
-                        </div>
-                    <% } %>
+                <% for( let i = 0; i < 4; i++ ) { %>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <section class="product-box">
+                            <a href="/products/detail/<%= data[i].id %>">
+                                <figure class="product-box_image">
+                                    <img src=<%= data[i].imagen %> alt="cafetera moulinex">
+                                </figure>
+                                <article class="product-box_data">
+                                    <h2><%= data[i].nombreProducto %></h2>
+                                    <p><%= data[i].descripcion %></p>
+                                    <p>Comentarios: 12</p>
+                                </article>
+                            </a>
+                        </section>
+                    </div>
+                <% } %>
 
 	<%- include('./partials/footer') %>
   </body>

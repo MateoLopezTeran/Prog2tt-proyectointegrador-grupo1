@@ -18,7 +18,7 @@ const profileController = {
 
   profilesEdit: function (req, res) {
     res.render('profilesEdit', {
-      nombreUsuario: datamodule.usuario.nombreUsuario
+      usuario: datamodule.usuario
     })
   },
 }

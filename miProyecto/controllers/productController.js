@@ -9,14 +9,8 @@ const productController = {
         productos = datamodule.productos[i];
       }
     };
-    
-    let comentarios = null;
-    for (let i = 0; i < datamodule.comentarios.length; i++) {
-      if (id == datamodule.comentarios[i].id) {
-        comentarios = datamodule;
-      }
-    };
-  return res.render('products', {
+    comentarios = datamodule
+    return res.render('products', {
     producto: productos,
     comentario: comentarios
 
@@ -29,5 +23,17 @@ const productController = {
     })
   },
 }
+
+/*    
+    let comentarios = null;
+    for (let i = 0; i < datamodule.comentarios.length; i++) {
+      if (id == datamodule.comentarios[i].id) {
+        comentarios = datamodule;
+      }
+    };
+    
+    Esto es una garcha, lo saque y no se queja mas la pagina
+    
+    */
 
 module.exports = productController

@@ -7,7 +7,9 @@ const indexController = {
   },
 
   headerLogueado: function(req, res) {
-    res.render('headerLogueado');
+    res.render('headerLogueado', {
+      usuario: datamodule.usuario
+    });
   },
 
   searchResults: function (req, res) {

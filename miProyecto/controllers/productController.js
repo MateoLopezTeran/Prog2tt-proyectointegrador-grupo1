@@ -24,16 +24,4 @@ const productController = {
   },
 }
 
-/*    
-    let comentarios = null;
-    for (let i = 0; i < datamodule.comentarios.length; i++) {
-      if (id == datamodule.comentarios[i].id) {
-        comentarios = datamodule;
-      }
-    };
-    
-    Esto es una garcha, lo saque y no se queja mas la pagina
-    
-    */
-
 module.exports = productController

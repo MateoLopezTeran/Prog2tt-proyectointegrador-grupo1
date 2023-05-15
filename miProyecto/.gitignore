@@ -1,2 +1,2 @@
-/database/config/config.js
-.DS_Store
+#/database/config/config.js
+#.DS_Store

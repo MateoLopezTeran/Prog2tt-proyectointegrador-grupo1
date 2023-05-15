@@ -1,5 +1,12 @@
 const datamodule = require('../data/datamodule')
 
+/* Requerimos modulos propios */
+const db = require('../database/models');
+const producto = db.Producto;
+const usuario = db.Usuario;
+let op = db.Sequelize.Op;
+
+
 const indexController = {
   index: function(req, res) {
     res.render('index', {

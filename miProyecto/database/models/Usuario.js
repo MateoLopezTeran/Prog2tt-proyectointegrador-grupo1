@@ -13,7 +13,7 @@ module.exports = function(sequelize, dataTypes) {
         email:{
             type: dataTypes.STRING,
         },
-        contraseña:{
+        contrasenna:{
             type: dataTypes.SRTING,
         },
         foto_perfil:{

@@ -9,7 +9,7 @@ create table usuarios (
 /* NOMBRE				TIPO			RESTRICCIONES */
 id						int				unsigned primary key auto_increment,
 email					varchar(100)	not null,
-contraseña				varchar(50)		not null,
+contrasenna				varchar(50)		not null,
 foto_perfil				varchar(200)	not null,
 fecha_nacimiento		date			not null,
 DNI						int				not null,

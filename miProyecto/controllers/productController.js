@@ -22,6 +22,11 @@ const productController = {
       usuario: datamodule.usuario
     })
   },
+
+  searchResults: function (req, res) {
+    res.render('searchResults', {
+      data: datamodule.productos});
+  }
 }
 
 module.exports = productController

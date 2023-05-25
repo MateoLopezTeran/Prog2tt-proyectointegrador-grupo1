@@ -10,8 +10,8 @@ create table usuarios (
 id						int				unsigned primary key auto_increment,
 email					varchar(100)	not null,
 contrasenna				varchar(50)		not null,
-foto_perfil				varchar(200)	not null,
-fecha_nacimiento		date			not null,
+fotoPerfil				varchar(200)	not null,
+fechaNacimiento		date			not null,
 DNI						int				not null,
 createdAt				timestamp default current_timestamp,
 updatedAt				timestamp default current_timestamp on update current_timestamp
@@ -21,26 +21,26 @@ updatedAt				timestamp default current_timestamp on update current_timestamp
 create table productos (
 /* NOMBRE				TIPO			RESTRICCIONES */
 id						int				unsigned primary key auto_increment,
-nombre_producto			varchar(150)	not null,
-descripcion_producto	varchar(200)	not null,
+nombreProducto			varchar(150)	not null,
+descripcionProducto	varchar(200)	not null,
 images                  varchar(100)    not null,
 createdAt				timestamp default current_timestamp,
 updatedAt				timestamp default current_timestamp on update current_timestamp,
-usuario_id				int 			unsigned,
-foreign key (usuario_id) references usuarios(id)
+usuarioId				int 			unsigned,
+foreign key (usuarioId) references usuarios(id)
 );
 
 -- Tabla de comentarios
 create table comentarios (
 /* NOMBRE				TIPO			RESTRICCIONES */
 id						int				unsigned primary key auto_increment,
-texto_comentario		varchar(150)	not null,
+textoComentario		varchar(150)	not null,
 createdAt 				timestamp default current_timestamp,
 updatedAt				timestamp default current_timestamp on update current_timestamp,
-usuario_id				int					unsigned,
-producto_id				int					unsigned,
-foreign key 			(usuario_id) references usuarios(id),
-foreign key				(producto_id) references productos(id)
+usuarioId				int					unsigned,
+productoId				int					unsigned,
+foreign key 			(usuarioId) references usuarios(id),
+foreign key				(productoId) references productos(id)
 );
 
 -- Usuarios

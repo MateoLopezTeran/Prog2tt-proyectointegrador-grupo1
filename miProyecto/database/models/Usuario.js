@@ -16,19 +16,19 @@ module.exports = function(sequelize, dataTypes) {
         contrasenna:{
             type: dataTypes.STRING,
         },
-        foto_perfil:{
+        fotoPerfil:{
             type: dataTypes.STRING,
         },
-        fecha_nacimiento:{
+        fechaNacimiento:{
             type: dataTypes.DATE,
         },
         DNI:{
             type: dataTypes.INTEGER,
         },
-        created_at:{
+        createdAt:{
             type: dataTypes.DEFAULT,
         },
-        updated_at:{
+        updatedAt:{
             type: dataTypes.DEFAULT
         }
     }

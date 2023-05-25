@@ -11,10 +11,10 @@ module.exports = function(sequelize, dataTypes){
             primaryKey: true,
             type: dataTypes.INTEGER,
         },
-        nombre_producto:{
+        nombreProducto:{
             type: dataTypes.STRING,
         },
-        descripcion_producto:{
+        descripcionProducto:{
             type: dataTypes.STRING,
         },
         images:{
@@ -28,7 +28,7 @@ module.exports = function(sequelize, dataTypes){
             type: dataTypes.DATE,
             allowNull: true,
         },
-        usuario_id:{
+        usuarioId:{
             type: dataTypes.INTEGER,
         }
     };
@@ -47,7 +47,7 @@ module.exports = function(sequelize, dataTypes){
    Genre.associate = function (models) {
     Genre.hasMany(models.Movie, {
         as: 'movie',
-        foreignKey: 'genre_id'
+        foreignKey: 'genreId'
     })
 };
    

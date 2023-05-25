@@ -14,7 +14,7 @@ module.exports = function(sequelize, dataTypes) {
             type: dataTypes.STRING,
         },
         contrasenna:{
-            type: dataTypes.SRTING,
+            type: dataTypes.STRING,
         },
         foto_perfil:{
             type: dataTypes.STRING,

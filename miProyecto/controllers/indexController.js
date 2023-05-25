@@ -8,10 +8,21 @@ let op = db.Sequelize.Op;
  
 
 const indexController = {
-  index: function(req, res) {
-    res.render('index', {
-      data: datamodule.productos});
+  index: (req, res) => {
+    let criterio = {
+      order: [['createdAT', 'ASC']]
+    };
+    
+    producto
+      .findAll(criterio)
+      .then(function (result) {
+        return res.render("productos", { productos: result });
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
   },
+
   
   headerLogueado: function(req, res) {
     res.render('headerLogueado', {

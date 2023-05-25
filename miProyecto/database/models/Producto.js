@@ -2,7 +2,7 @@
 module.exports = function(sequelize, dataTypes){
 
     /* 2do paso : crear un alias para que sequelize sepa con cual modelo debe conectar */
-    let alias = 'Product';
+    let alias = 'Producto';
 
     /* 3er paso : Es crear una variable con la extructura de la tabla */
     let cols = {
@@ -35,23 +35,22 @@ module.exports = function(sequelize, dataTypes){
 
     /* 4ta paso: crear un obj lit con la configuracion de la tabla */
     let config = {
-        table:'genres',
+        table:'productos',
         timestamps: false,
         underscore: true,
     };
 
     /* 5to paso : crear el metodo define() con los 3 parametros */
-    const Genre = sequelize.define(alias,cols,config);
+    const Producto = sequelize.define(alias,cols,config);
 
    /* Crear relacion */
-   Genre.associate = function (models) {
-    Genre.hasMany(models.Movie, {
-        as: 'movie',
-        foreignKey: 'genreId'
+   Producto.associate = function (models) {
+    Producto.belongsTo(models.Usuario, {
+        as: 'usuario',
+        foreignKey: 'usuario_id'
     })
 };
    
-
     /* 6to retornar el valor del modelo */
-    return Genre;
+    return Producto;
 }

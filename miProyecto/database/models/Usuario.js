@@ -1,7 +1,7 @@
 module.exports = function(sequelize, dataTypes) {
 
     /* Crear 3 variables */
-    let alias = "Usuarios"; /* Un apodo para requerirlo en los controllers */
+    let alias = "Usuario"; /* Un apodo para requerirlo en los controllers */
 
     /* mapeo exacto de cada una de las columnas */
     let cols = {
@@ -26,10 +26,12 @@ module.exports = function(sequelize, dataTypes) {
             type: dataTypes.INTEGER,
         },
         createdAt:{
-            type: dataTypes.DEFAULT,
+            type: dataTypes.DATE,
+            allowNull: true,
         },
         updatedAt:{
-            type: dataTypes.DEFAULT
+            type: dataTypes.DATE,
+            allowNull: true,
         }
     }
 
@@ -40,7 +42,7 @@ module.exports = function(sequelize, dataTypes) {
         underscored: true, //Si los nombres de las columnas en la db tienen guiones bajos en lugar de camelCase.
     };
 
-    const Usuarios = sequelize.define(alias, cols, config);
+    const Usuario = sequelize.define(alias, cols, config);
 
-    return Usuarios;
+    return Usuario;
 };

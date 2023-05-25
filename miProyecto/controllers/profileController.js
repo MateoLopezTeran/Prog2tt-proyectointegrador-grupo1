@@ -21,9 +21,6 @@ const profileController = {
       usuario: datamodule.usuario
     })
   },
-  create: function (req, res) {
-    return res.render('register')
-  },
   store: function (req, res) {
     return res.redirect('/profiles/login')
   }

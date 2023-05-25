@@ -19,7 +19,7 @@ module.exports = function (sequelize, dataTypes){
            type: dataTypes.DATE,
            allowNull: true,
        },
-       usuario_id: {
+       usuarioId: {
            type: dataTypes.INTEGER
        },
        productoId: {

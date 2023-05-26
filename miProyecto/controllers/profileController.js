@@ -22,7 +22,23 @@ const profileController = {
     })
   },
   store: function (req, res) {
+    let info = req.body;
+    
+    let userSave = {
+      email: info.email,
+      contrasenna: info.contrasenna
+    }
+    db.Usuario.create(userSave)
+    .then(function (result) {
+      return res.redirect('users/login')
+    })
+    .catch(function (error) {
+      console.log(error)
+    })
     return res.redirect('/profiles/login')
+  },
+  loginPost: function (req, res) {
+    return res.redirect('/profiles/all')
   }
 }
 

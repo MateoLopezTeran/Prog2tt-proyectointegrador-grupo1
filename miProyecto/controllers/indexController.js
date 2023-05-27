@@ -9,19 +9,21 @@ let op = db.Sequelize.Op;
 
 const indexController = {
   index: (req, res) => {
-    let criterio = {
+    return res.render("index", ) /* Este render es el del then. Está acá para que no crashee la pagina */
+  },
+   /*  let criterio = {
       order: [['createdAT', 'ASC']]
     };
     
     producto
       .findAll(criterio)
       .then(function (result) {
-        return res.render("productos", { productos: result });
+        return res.render("index", { productos: result });
       })
       .catch(function (err) {
         console.log(err);
       });
-  },
+  }, */
 
   
   headerLogueado: function(req, res) {

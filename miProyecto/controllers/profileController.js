@@ -1,5 +1,6 @@
 const datamodule = require('../data/datamodule')
 const db = require("../database/models");
+const user = db.Usuario;
 
 const profileController = {
   usuario: function (req, res) {
@@ -10,26 +11,26 @@ const profileController = {
   },
   
   regitser: function (req, res) {
-    res.render('register')
+    return res.render('register')
   },
-
-  login: function (req, res) {
-    res.render('login')
-  },
-
-  profilesEdit: function (req, res) {
-    res.render('profilesEdit', {
-      usuario: datamodule.usuario
-    })
-  },
-   store: function (req, res) {
+  store: function (req, res) {
     let info = req.body;
     
     let userSave = {
       email: info.email,
       contrasenna: info.contrasenna
     }
-    movie.findAll({
+
+    user.create(userSave)
+    .then(function (result) {
+      return res.redirect('/profiles/login');
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  },
+
+    /* movie.findAll({
         where: [
           { email: info.email },
         ],
@@ -41,18 +42,21 @@ const profileController = {
       })
       .catch(function (error) {
         console.log(error);
-      });
-    db.Usuario.create(userSave)
-    .then(function (result) {
-      console.log(result) // no funciona
-      return res.redirect('profiles/login')
+      }); */
+    
+
+  login: function (req, res) {
+    res.render('login')
+  },
+
+  profilesEdit: function (req, res) {
+    res.render('profilesEdit', {
+      usuario: datamodule.usuario
     })
-    .catch(function (error) {
-      console.log(error)
-    })
-  } ,
+  },
+
   loginPost: function (req, res) {
-    return res.redirect('/profiles/all')
+    return res.redirect('/')
   }
 }
 

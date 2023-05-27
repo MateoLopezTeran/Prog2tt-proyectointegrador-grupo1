@@ -1,4 +1,5 @@
 const datamodule = require('../data/datamodule')
+const db = require("../database/models");
 
 const profileController = {
   usuario: function (req, res) {
@@ -21,22 +22,35 @@ const profileController = {
       usuario: datamodule.usuario
     })
   },
-  store: function (req, res) {
+   store: function (req, res) {
     let info = req.body;
     
     let userSave = {
       email: info.email,
       contrasenna: info.contrasenna
     }
+    movie.findAll({
+        where: [
+          { email: info.email },
+        ],
+      })
+      .then(function (result) {
+        if (result == null) {
+          // hacer el create --> todavia no puedo agarrar bien el form xq se mezcla con otro form y no se cual es cual
+        }
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
     db.Usuario.create(userSave)
     .then(function (result) {
-      return res.redirect('users/login')
+      console.log(result) // no funciona
+      return res.redirect('profiles/login')
     })
     .catch(function (error) {
       console.log(error)
     })
-    return res.redirect('/profiles/login')
-  },
+  } ,
   loginPost: function (req, res) {
     return res.redirect('/profiles/all')
   }

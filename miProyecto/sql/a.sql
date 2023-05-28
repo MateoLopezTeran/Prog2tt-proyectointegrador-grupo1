@@ -11,7 +11,7 @@ id						int				unsigned primary key auto_increment,
 email					varchar(100)	not null,
 contrasenna				varchar(50)		not null,
 fotoPerfil				varchar(200)	not null,
-fechaNacimiento		date			not null,
+fechaNacimiento		    date			not null,
 DNI						int				not null,
 createdAt				timestamp default current_timestamp,
 updatedAt				timestamp default current_timestamp on update current_timestamp
@@ -34,7 +34,7 @@ foreign key (usuarioId) references usuarios(id)
 create table comentarios (
 /* NOMBRE				TIPO			RESTRICCIONES */
 id						int				unsigned primary key auto_increment,
-textoComentario		varchar(150)	not null,
+textoComentario		    varchar(150)	not null,
 createdAt 				timestamp default current_timestamp,
 updatedAt				timestamp default current_timestamp on update current_timestamp,
 usuarioId				int					unsigned,

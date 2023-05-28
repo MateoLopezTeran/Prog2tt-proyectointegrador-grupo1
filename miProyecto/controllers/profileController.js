@@ -48,15 +48,14 @@ const profileController = {
   login: function (req, res) {
     res.render('login')
   },
+  loginPost: function (req, res) {
+    return res.redirect('/')
+  },
 
   profilesEdit: function (req, res) {
     res.render('profilesEdit', {
       usuario: datamodule.usuario
     })
-  },
-
-  loginPost: function (req, res) {
-    return res.redirect('/')
   }
 }
 

@@ -1,5 +1,12 @@
 const datamodule = require('../data/datamodule')
 
+/* Requerimos modulos propios */
+const db = require('../database/models');
+const producto = db.Producto;
+const usuario = db.Usuario;
+const comentario = db.Comentario;
+let op = db.Sequelize.Op;
+
 const productController = {
   products: function(req, res) {
     let id = req.params.id;
@@ -16,6 +23,37 @@ const productController = {
 
     });
   },
+  products: (req, res) => {
+    let emailBuscado = req.body.email;
+    let comentarioBuscado = req.body.textoComentario;
+    
+    let filtrado = {
+      where: [{email: emailBuscado}]
+    };
+    
+    let condicion = {
+      where: [{textoComentario: comentarioBuscado}]
+    };
+
+    usuario
+      .findAll(filtrado)
+      .then(function (result) {
+        return res.render("products", {email: result});
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+
+    comentario
+    .findAll(condicion)
+    .then(function (result) {
+      return res.render("products", {textoComentario: result});
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
+  },
+
 
   productsAdd: function(req, res) {
     return res.render('productsAdd', {

@@ -10,6 +10,10 @@
         <p class="product-detail-description">
             <a href="/products/productsAdd">Editar</a>
         </p>
+        <% for( let i = 0; i < email.length; i++ ) { %>
+            <h2 class="products-title"><% email[i] %></h2> 
+        <% } %>
+
     </div>
     <div class="product-detail">
         <div class="row">

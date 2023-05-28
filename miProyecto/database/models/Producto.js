@@ -12,7 +12,7 @@ module.exports = function(sequelize, dataTypes){
             type: dataTypes.INTEGER,
         },
         nombreProducto:{
-            type: dataTypes.STRING,
+            type: dataTypes.STRING(150),
         },
         descripcionProducto:{
             type: dataTypes.STRING,
@@ -47,7 +47,7 @@ module.exports = function(sequelize, dataTypes){
    Producto.associate = function (models) {
     Producto.belongsTo(models.Usuario, {
         as: 'usuario',
-        foreignKey: 'usuario_id'
+        foreignKey: 'usuarioID'
     })
 };
    

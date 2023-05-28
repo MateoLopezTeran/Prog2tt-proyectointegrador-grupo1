@@ -9,9 +9,7 @@ let op = db.Sequelize.Op;
 
 const indexController = {
   index: (req, res) => {
-    return res.render("index", ) /* Este render es el del then. Está acá para que no crashee la pagina */
-  },
-   /*  let criterio = {
+    let criterio = {
       order: [['createdAT', 'ASC']]
     };
     
@@ -23,7 +21,7 @@ const indexController = {
       .catch(function (err) {
         console.log(err);
       });
-  }, */
+  },
 
   
   headerLogueado: function(req, res) {

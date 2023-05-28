@@ -6,8 +6,10 @@
 <!-- product detail -->
 <div class="container products-wrapper">
     <div class="d-flex align-items-center">
-        <h2 class="products-title"><%= products.nombre_producto %></h2> 
-        <p class="product-detail-description">
+        <% for( let i = 0; i < 10; i++ ) { %>
+            <h2 class="products-title"><%= nombreProducto[i] %></h2> 
+        <% } %>
+        <p class="product-detail-descrption">
             <a href="/products/productsAdd">Editar</a>
         </p>
         <!-- mail del usuario -->
@@ -25,11 +27,11 @@
                 <section class="comments">
                         <% for( let i = 0; i < 5; i++ ) { %>
                             <article>
-                                <img src="<%= products.foto_perfil %>" alt="">
+                                <img src="<%= fotoPerfil[i] %>" alt="">
                                 <div class="data">
                                     <p class="user">
-                                    <strong> <a href="/profiles"><%= products.email %></a> </strong>
-                                    <%= /* comentarios */ %></p>
+                                    <strong> <a href="/profiles"><%= email[i] %></a> </strong>
+                                    <%= comentarios[i] %></p>
                                 </div>
                             </article>
                         <% } %> 

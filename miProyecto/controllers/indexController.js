@@ -10,7 +10,7 @@ let op = db.Sequelize.Op;
 const indexController = {
   index: (req, res) => {
     let criterio = {
-      order: [['createdAT', 'ASC']]
+      order: [['created_at', 'ASC']]
     };
     
     producto

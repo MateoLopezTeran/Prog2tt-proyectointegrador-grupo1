@@ -50,7 +50,7 @@ const profileController = {
     res.render('login')
   },
   loginPost: function (req, res) {
-    return res.redirect('/')
+    return res.redirect('/profiles')
   },
 
   profilesEdit: function (req, res) {

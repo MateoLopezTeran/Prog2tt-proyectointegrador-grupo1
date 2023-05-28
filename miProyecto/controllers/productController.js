@@ -24,37 +24,26 @@ const productController = {
     });
   },
   products: (req, res) => {
-    let emailBuscado = req.body.email;
-    let comentarioBuscado = req.body.textoComentario;
-    
-    let filtrado = {
-      where: [{email: emailBuscado}]
-    };
-    
-    let condicion = {
-      where: [{textoComentario: comentarioBuscado}]
-    };
-
+    let id = req.params.id
     usuario
-      .findAll(filtrado)
-      .then(function (result) {
-        return res.render("products", {email: result});
-      })
-      .catch(function (err) {
-        console.log(err);
-      });
-
-    comentario
-    .findAll(condicion)
+    .findAll({include: [{association: 'productos'}, {association: 'comentarios'}]})
     .then(function (result) {
-      return res.render("products", {textoComentario: result});
+      /* let comments = []
+      for (let i = 0; i < result.comentarios.length; i++) {
+        comments.push(result.comentarios[i].texto_comentario);
+      } */
+      res.send(result)
+      for (let i = 0; i < result[i].length; i++) {
+        
+        
+      }
+      /* res.send(result) */
+      return res.render("products", {products: result/* , comentarios: comments */});
     })
     .catch(function (err) {
       console.log(err);
     });
   },
-
-
   productsAdd: function(req, res) {
     return res.render('productsAdd', {
       usuario: datamodule.usuario

@@ -9,10 +9,11 @@ const profileController = {
     data: datamodule.productos
     })
   },
-  
+  //este es el get
   regitser: function (req, res) {
     return res.render('register')
   },
+  //este es el post
   store: function (req, res) {
     let info = req.body;
     
@@ -20,30 +21,30 @@ const profileController = {
       email: info.email,
       contrasenna: info.contrasenna
     }
-
-    user.create(userSave)
+    user.findAll({
+      where: [
+        { email: info.email },
+      ],
+    })
     .then(function (result) {
-      return res.redirect('/profiles/login');
+
+      if (result == null) {
+
+        user.create(userSave)
+        .then(function (result) {
+          return res.redirect('/profiles/login');
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+
+      }
+      
     })
     .catch(function (error) {
       console.log(error);
     });
-  },
-
-    /* movie.findAll({
-        where: [
-          { email: info.email },
-        ],
-      })
-      .then(function (result) {
-        if (result == null) {
-          // hacer el create --> todavia no puedo agarrar bien el form xq se mezcla con otro form y no se cual es cual
-        }
-      })
-      .catch(function (error) {
-        console.log(error);
-      }); */
-    
+  },    
 
   login: function (req, res) {
     res.render('login')

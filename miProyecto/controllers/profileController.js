@@ -1,5 +1,6 @@
 const datamodule = require('../data/datamodule')
 const db = require("../database/models");
+const bcrypt = require('bcryptjs');
 const user = db.Usuario;
 
 const profileController = {
@@ -30,7 +31,7 @@ const profileController = {
       mensaje = "";
       if (result == null) {
 
-        user.create(userSave)
+        user.usuario(userSave)
         .then(function (result) {
           return res.redirect('/profiles/login');
         })
@@ -38,7 +39,8 @@ const profileController = {
           console.log(error);
         });
 
-      }else {
+      }
+      else {
         mensaje = "El mail se encuentra en uso";
         return res.redirect('/profiles/register')
       }
@@ -53,6 +55,17 @@ const profileController = {
     res.render('login')
   },
   loginPost: function (req, res) {
+    let emailBuscado = req.body.email;
+    let pass = req.body.contrasenna;
+    let filtrado = {
+      where: [{email: emailBuscado}]
+    };
+    user.findOne(filtrado)
+    .then(result)
+    .catch((err) => {
+      console.log(err);
+  });
+    
     return res.redirect('/profiles')
   },
 

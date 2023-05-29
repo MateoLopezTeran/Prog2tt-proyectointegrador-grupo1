@@ -21,26 +21,26 @@ updated_at				timestamp default current_timestamp on update current_timestamp
 create table productos (
 /* NOMBRE				TIPO			RESTRICCIONES */
 id						int				unsigned primary key auto_increment,
-nombreProducto			varchar(150)	not null,
-descripcionProducto	    varchar(200)	not null,
+nombre_producto			varchar(150)	not null,
+descripcion_producto	    varchar(200)	not null,
 images                  varchar(100)    not null,
-createdAt				timestamp default current_timestamp,
-updatedAt				timestamp default current_timestamp on update current_timestamp,
-usuarioId				int 			unsigned,
-foreign key (usuarioId) references usuarios(id)
+created_at				timestamp default current_timestamp,
+updated_at				timestamp default current_timestamp on update current_timestamp,
+usuario_id				int 			unsigned,
+foreign key (usuario_id) references usuarios(id)
 );
 
 -- Tabla de comentarios
 create table comentarios (
 /* NOMBRE				TIPO			RESTRICCIONES */
 id						int				unsigned primary key auto_increment,
-textoComentario		    varchar(150)	not null,
-createdAt 				timestamp default current_timestamp,
-updatedAt				timestamp default current_timestamp on update current_timestamp,
-usuarioId				int					unsigned,
-productoId				int					unsigned,
-foreign key 			(usuarioId) references usuarios(id),
-foreign key				(productoId) references productos(id)
+texto_comentario		    varchar(150)	not null,
+created_at 				timestamp default current_timestamp,
+updated_at				timestamp default current_timestamp on update current_timestamp,
+usuario_id				int					unsigned,
+producto_id				int					unsigned,
+foreign key 			(usuario_id) references usuarios(id),
+foreign key				(producto_id) references productos(id)
 );
 
 -- Usuarios

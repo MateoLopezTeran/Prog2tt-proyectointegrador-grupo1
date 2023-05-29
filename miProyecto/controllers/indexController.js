@@ -1,4 +1,4 @@
-const datamodule = require('../data/datamodule')
+
 
 /* Requerimos modulos propios */
 const db = require('../database/models');
@@ -25,15 +25,20 @@ const indexController = {
   },
 
   
-  headerLogueado: function(req, res) {
-    res.render('headerLogueado', {
-      usuario: datamodule.usuario
-    });
-  }, 
 
   searchResults: function (req, res) {
-    res.render('searchResults', {
-      data: datamodule.productos});
+    let busqueda = req.query.search
+    producto
+      .findAll({
+        where: [
+          {nombre_producto: {[op.like]: "%" + busqueda + "%"}}
+        ]
+      }, {include: [{association: 'comentarios'}]})
+      .then(function (result) {
+        return res.render('searchResults', {products: result })
+      }).catch((err) => {
+        console.log(err)
+      })
   }
 }
  

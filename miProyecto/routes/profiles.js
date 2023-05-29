@@ -7,7 +7,7 @@ router.get('/', profileController.usuario);
 router.get('/profilesEdit', profileController.profilesEdit);
 
 // Para obtener un formulario
-router.get('/register', profileController.regitser);
+router.get('/register', profileController.register);
 // Para crear un usuario en la tabla y redirigirlo al login
 router.post('/register', profileController.store);
 

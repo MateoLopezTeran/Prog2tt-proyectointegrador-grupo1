@@ -10,11 +10,11 @@ create table usuarios (
 id						int				unsigned primary key auto_increment,
 email					varchar(100)	not null,
 contrasenna				varchar(50)		not null,
-fotoPerfil				varchar(200)	not null,
-fechaNacimiento		    date			not null,
-DNI						int				not null,
-createdAt				timestamp default current_timestamp,
-updatedAt				timestamp default current_timestamp on update current_timestamp
+foto_perfil				varchar(200)	not null,
+fecha_nacimiento		date			not null,
+d_n_i				    int				not null,
+created_at				timestamp default current_timestamp,
+updated_at				timestamp default current_timestamp on update current_timestamp
 );
 
 -- Tabla de productos

@@ -24,37 +24,44 @@ const productController = {
     });
   },
   products: (req, res) => {
-    let emailBuscado = req.body.email;
-    let comentarioBuscado = req.body.textoComentario;
-    
-    let filtrado = {
-      where: [{email: emailBuscado}]
-    };
-    
-    let condicion = {
-      where: [{textoComentario: comentarioBuscado}]
-    };
-
+    let id = req.params.id
     usuario
-      .findAll(filtrado)
-      .then(function (result) {
-        return res.render("products", {email: result});
-      })
-      .catch(function (err) {
-        console.log(err);
-      });
-
-    comentario
-    .findAll(condicion)
+    .findAll({include: [{association: 'productos'}, {association: 'comentarios'}]})
     .then(function (result) {
-      return res.render("products", {textoComentario: result});
+      let nombre = []
+      for (let i = 0; i < result.length; i++) {
+        nombre.push(result[i].productos[i]);
+      }
+      /* No funciona bien */
+
+      let fotoProduct = []
+      for (let i = 0; i < result.length; i++) {
+        fotoProduct.push(result[i].productos.images);
+      }
+      /* res.send(fotoProduct) */
+
+      let comments = []
+      for (let i = 0; i < result.length; i++) {
+        comments.push(result[i].comentarios[i].texto_comentario);
+      }
+      /* No funciona bien */
+      /* res.send(comments) */
+      let foto = []
+      for (let i = 0; i < result.length; i++) {
+        foto.push(result[i].foto_perfil)
+      }
+      
+      let mail = []
+      for (let i = 0; i < result.length; i++) {
+        mail.push(result[i].email)
+      }
+      
+      return res.render("products", {products: result, nombreProducto: nombre, fotoProducto: fotoProduct, comentarios: comments, fotoPerfil: foto, email:mail});
     })
     .catch(function (err) {
       console.log(err);
     });
   },
-
-
   productsAdd: function(req, res) {
     return res.render('productsAdd', {
       usuario: datamodule.usuario

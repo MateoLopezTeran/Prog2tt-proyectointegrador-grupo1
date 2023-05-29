@@ -11,24 +11,24 @@ module.exports = function(sequelize, dataTypes){
             primaryKey: true,
             type: dataTypes.INTEGER,
         },
-        nombreProducto:{
+        nombre_producto:{
             type: dataTypes.STRING(150),
         },
-        descripcionProducto:{
+        descripcion_producto:{
             type: dataTypes.STRING,
         },
         images:{
             type: dataTypes.STRING,
         },
-        createdAt:{
+        created_at:{
             type: dataTypes.DATE,
             allowNull: true,
         },
-        updatedAt:{
+        updated_at:{
             type: dataTypes.DATE,
             allowNull: true,
         },
-        usuarioId:{
+        usuario_id:{
             type: dataTypes.INTEGER,
         }
     };
@@ -45,11 +45,15 @@ module.exports = function(sequelize, dataTypes){
 
    /* Crear relacion */
    Producto.associate = function (models) {
-    Producto.belongsTo(models.Usuario, {
+        Producto.belongsTo(models.Usuario, {
         as: 'usuario',
-        foreignKey: 'usuarioID'
-    })
-};
+        foreignKey: 'usuario_id'
+        }),
+        Producto.hasMany(models.Comentario, {
+            as: 'comentarios',
+            foreignKey: 'producto_id'
+        })
+    };
    
     /* 6to retornar el valor del modelo */
     return Producto;

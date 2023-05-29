@@ -8,21 +8,21 @@ module.exports = function (sequelize, dataTypes){
            primaryKey: true,
            type: dataTypes.INTEGER
        },
-       textoComentario : {
+       texto_comentario : {
             type: dataTypes.STRING
        },
-       createdAt : {
+       created_at : {
            type: dataTypes.DATE,
            allowNull:true,
        },
-       updatedAt: {
+       updated_at: {
            type: dataTypes.DATE,
            allowNull: true,
        },
-       usuarioId: {
+       usuario_id: {
            type: dataTypes.INTEGER
        },
-       productoId: {
+       producto_id: {
         type: dataTypes.INTEGER
     }
    };

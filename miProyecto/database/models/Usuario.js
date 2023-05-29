@@ -16,20 +16,20 @@ module.exports = function(sequelize, dataTypes) {
         contrasenna:{
             type: dataTypes.STRING,
         },
-        fotoPerfil:{
+        foto_perfil:{
             type: dataTypes.STRING,
         },
-        fechaNacimiento:{
+        fecha_nacimiento:{
             type: dataTypes.DATE,
         },
-        DNI:{
+        d_n_i:{
             type: dataTypes.INTEGER,
         },
-        createdAt:{
+        created_at:{
             type: dataTypes.DATE,
             allowNull: true,
         },
-        updatedAt:{
+        updated_at:{
             type: dataTypes.DATE,
             allowNull: true,
         }
@@ -43,6 +43,17 @@ module.exports = function(sequelize, dataTypes) {
     };
 
     const Usuario = sequelize.define(alias, cols, config);
+
+    Usuario.associate = function (models) {
+        Usuario.hasMany(models.Producto, {
+            as: 'productos',
+            foreignKey: 'usuario_id'
+        }),
+        Usuario.hasMany(models.Comentario, {
+            as: 'comentarios',
+            foreignKey: 'usuario_id'
+        })
+    };
 
     return Usuario;
 };

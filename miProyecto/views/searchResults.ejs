@@ -11,16 +11,16 @@
 				<h2 class="products-title">Resultados de búsqueda</h2>
 			</div>
             <!-- Show the "busqueda" of products -->
-                <% for( let i = 0; i < 4; i++ ) { %>
+                <% for( let i = 0; i < products.length; i++ ) { %>
                     <div class="col-12 col-sm-6 col-lg-3">
                         <section class="product-box">
-                            <a href="/products/detail/<%= data[i].id %>">
+                            <a href="/products/detail/<%= products[i].id %>">
                                 <figure class="product-box_image">
-                                    <img src=<%= data[i].imagen %> alt="cafetera moulinex">
+                                    <img src=<%= products[i].images %> alt="cafetera moulinex">
                                 </figure>
                                 <article class="product-box_data">
-                                    <h2><%= data[i].nombreProducto %></h2>
-                                    <p><%= data[i].descripcion %></p>
+                                    <h2><%= products[i].nombre_producto %></h2>
+                                    <p><%= products[i].descripcion %></p>
                                     <p>Comentarios: 12</p>
                                 </article>
                             </a>

@@ -1,3 +1,4 @@
+const { log } = require('console');
 const datamodule = require('../data/datamodule')
 const db = require("../database/models");
 const user = db.Usuario;
@@ -17,10 +18,17 @@ const profileController = {
   store: function (req, res) {
     let info = req.body;
     
+    if (info.contrasenna < 3){
+      return res.redirect('/profiles/register')}
+    else {
+      return res.redirect('/')}
+    
+
     let userSave = {
       email: info.email,
       contrasenna: info.contrasenna
     }
+    /*  
     user.create(userSave)
     .then(function (result) {
       let mensaje = ""
@@ -31,7 +39,7 @@ const profileController = {
       let mensaje = "El mail se encuentra en uso";
       return res.redirect('/profiles/register')
     });
-
+*/
   },    
 
   login: function (req, res) {

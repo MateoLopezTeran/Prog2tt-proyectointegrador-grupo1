@@ -8,21 +8,21 @@ const comentario = db.Comentario;
 let op = db.Sequelize.Op;
 
 const productController = {
-  products: function(req, res) {
-    let id = req.params.id;
-    let productos = null;
-    for (let i = 0; i < datamodule.productos.length; i++) {
-      if (id == datamodule.productos[i].id) {
-        productos = datamodule.productos[i];
-      }
-    };
-    comentarios = datamodule
-    return res.render('products', {
-    producto: productos,
-    comentario: comentarios
+  // products: function(req, res) {
+  //   let id = req.params.id;
+  //   let productos = null;
+  //   for (let i = 0; i < datamodule.productos.length; i++) {
+  //     if (id == datamodule.productos[i].id) {
+  //       productos = datamodule.productos[i];
+  //     }
+  //   };
+  //   comentarios = datamodule
+  //   return res.render('products', {
+  //   producto: productos,
+  //   comentario: comentarios
 
-    });
-  },
+  //   });
+  // },
   products: (req, res) => {
     let id = req.params.id
     producto
@@ -72,10 +72,7 @@ const productController = {
     })
   },
 
-  searchResults: function (req, res) {
-    res.render('searchResults', {
-      data: datamodule.productos});
-  }
+
 }
 
 module.exports = productController

@@ -28,6 +28,8 @@ const profileController = {
       email: info.email,
       contrasenna: info.contrasenna
     }
+    // en este create hay q sgregarle q la clave se envia encriptada y esta comentado para q no cambie todo el tiempo la sql
+
     /*  
     user.create(userSave)
     .then(function (result) {
@@ -54,6 +56,7 @@ const profileController = {
           if (result == null) {
             return res.redirect('/profiles/login')
           } else {
+            // aca va la comparacion del hasheo de la contraseña y el redirect tmb es provisorio
             return res.redirect('/')
           }
         })

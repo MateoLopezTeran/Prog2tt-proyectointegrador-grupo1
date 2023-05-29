@@ -27,7 +27,7 @@ const profileController = {
       ],
     })
     .then(function (result) {
-
+      mensaje = "";
       if (result == null) {
 
         user.create(userSave)
@@ -38,8 +38,11 @@ const profileController = {
           console.log(error);
         });
 
+      }else {
+        mensaje = "El mail se encuentra en uso";
+        return res.redirect('/profiles/register')
       }
-      
+
     })
     .catch(function (error) {
       console.log(error);

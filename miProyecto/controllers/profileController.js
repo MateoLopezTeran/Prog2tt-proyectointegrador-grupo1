@@ -28,7 +28,7 @@ const profileController = {
       ],
     })
     .then(function (result) {
-      mensaje = "";
+      let mensaje = "";
       if (result == null) {
         user.create(userSave)
         .then(function (result) {

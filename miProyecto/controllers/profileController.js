@@ -43,7 +43,23 @@ const profileController = {
   },    
 
   login: function (req, res) {
-    res.render('login')
+    let info = req.body;
+    let criterio = {
+      where: [
+        { email: info.email },
+      ],
+    }
+    user.findOne(criterio)
+        .then(function (result) {
+          if (result == null) {
+            return res.redirect('/profiles/login')
+          } else {
+            return res.redirect('/')
+          }
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
   },
   loginPost: function (req, res) {
     return res.redirect('/')

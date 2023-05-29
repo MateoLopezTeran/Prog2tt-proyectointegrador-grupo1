@@ -30,8 +30,7 @@ const profileController = {
     .then(function (result) {
       mensaje = "";
       if (result == null) {
-
-        user.usuario(userSave)
+        user.create(userSave)
         .then(function (result) {
           return res.redirect('/profiles/login');
         })

@@ -25,38 +25,42 @@ const productController = {
   },
   products: (req, res) => {
     let id = req.params.id
-    usuario
-    .findAll({include: [{association: 'productos'}, {association: 'comentarios'}]})
+    producto
+    .findByPk(id, {include: [{association: 'comentarios'}]})
     .then(function (result) {
-      let nombre = []
-      for (let i = 0; i < result.length; i++) {
-        nombre.push(result[i].productos[i]);
-      }
-      /* No funciona bien */
+      // let nombre = []
+      // for (let i = 0; i < result.length; i++) {
+      //   nombre.push(result[i].productos[i]);
+      // }
+      // /* No funciona bien */
 
-      let fotoProduct = []
-      for (let i = 0; i < result.length; i++) {
-        fotoProduct.push(result[i].productos.images);
-      }
-      /* res.send(fotoProduct) */
+      // let fotoProduct = []
+      // for (let i = 0; i < result.length; i++) {
+      //   fotoProduct.push(result[i].productos.images);
+      // }
+      // /* res.send(fotoProduct) */
 
-      let comments = []
-      for (let i = 0; i < result.length; i++) {
-        comments.push(result[i].comentarios[i].texto_comentario);
-      }
-      /* No funciona bien */
-      /* res.send(comments) */
-      let foto = []
-      for (let i = 0; i < result.length; i++) {
-        foto.push(result[i].foto_perfil)
-      }
+      // let comments = []
+      // for (let i = 0; i < result.length; i++) {
+      //   comments.push(result[i].comentarios[i].texto_comentario);
+      // }
+      // /* No funciona bien */
+      // /* res.send(comments) */
+      // let foto = []
+      // for (let i = 0; i < result.length; i++) {
+      //   foto.push(result[i].foto_perfil)
+      // }
       
-      let mail = []
-      for (let i = 0; i < result.length; i++) {
-        mail.push(result[i].email)
-      }
+      // let mail = []
+      // for (let i = 0; i < result.length; i++) {
+      //   mail.push(result[i].email)
+      // }
       
-      return res.render("products", {products: result, nombreProducto: nombre, fotoProducto: fotoProduct, comentarios: comments, fotoPerfil: foto, email:mail});
+      for (let i = 0; i < productos.length; i++) {
+        comentarios_productos = product.comentarios[i];
+      }
+
+      return res.render("productDetail", {product: result});
     })
     .catch(function (err) {
       console.log(err);

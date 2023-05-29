@@ -60,14 +60,22 @@ const profileController = {
       where: [{email: emailBuscado}]
     };
     user.findOne(filtrado)
-    .then(result)
-    .catch((err) => {
-      console.log(err);
-  });
-    
-    return res.redirect('/profiles')
-  },
+    .then((result) => {
+      if (result != null) {
+        let claveCorrecta = bcrypt.compareSync(pass, result.pass)
+        if (claveCorrecta) {
+          return res.redirect('/profile/login/index');
 
+        } else {
+          return res.redirect('/profile/login');
+      }
+    } else {
+      return res.send('No Existe el mail')
+        }
+      }).catch(function(err) {
+        console.log(err);
+      })
+  },
   profilesEdit: function (req, res) {
     res.render('profilesEdit', {
       usuario: datamodule.usuario

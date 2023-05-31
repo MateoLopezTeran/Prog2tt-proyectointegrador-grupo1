@@ -104,4 +104,3 @@ insert into comentarios values(default, 'es medio lenta y anda mal', default, de
 insert into comentarios values(default, 'es lenta para algunas cosas', default, default, 2, 9);
 insert into comentarios values(default, 'me convence la carga', default, default, 3, 5);
 insert into comentarios values(default, 'fue muy barata y me parece resistente', default, default, 5, 10);
-

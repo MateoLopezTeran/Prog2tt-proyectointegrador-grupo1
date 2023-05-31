@@ -35,7 +35,12 @@ const indexController = {
         ]
       }, {include: [{association: 'comentarios'}]})
       .then(function (result) {
-        return res.render('searchResults', {products: result })
+        if (searchResults == null) {
+          res.send('No hay resultados para su criterio de búsqueda')
+        }
+        return res.render('searchResults', {products: result });
+        
+
       }).catch((err) => {
         console.log(err)
       })

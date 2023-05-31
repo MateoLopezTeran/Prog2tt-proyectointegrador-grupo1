@@ -6,8 +6,8 @@
 <!-- product detail -->
 <div class="container products-wrapper">
     <div class="d-flex align-items-center">
-        <% for( let i = 0; products.length; i++ ) { %>
-            <h2 class="products-title"><%= nombreProducto[i] %></h2> 
+        <% for( let i = 0; product.length; i++ ) { %>
+            <h2 class="products-title"><%= product.nombreProducto[i] %></h2> 
         <% } %>
         <p class="product-detail-descrption">
             <a href="/products/productsAdd">Editar</a>
@@ -18,26 +18,26 @@
     <div class="product-detail">
         <div class="row">
             <article class="col-12 col-lg-8 product-detail-info">
-                <img src=<%= products.images %> alt="" class="product-detail-img">
+                <img src=<%= product.images %> alt="" class="product-detail-img">
                 <p class="product-detail-description">
-                    <%= products.descripcion_producto %>
+                    <%= product.descripcion_producto %>
                 </p>
             </article>
             <div class="col-12 col-lg-4">
                 <section class="comments">
                         <% for( let i = 0; i < 5; i++ ) { %>
                             <article>
-                                <img src="<%= fotoPerfil[i] %>" alt="">
+                                <img src="<%= product.fotoPerfil[i] %>" alt="">
                                 <div class="data">
                                     <p class="user">
-                                    <strong> <a href="/profiles"><%= email[i] %></a> </strong>
-                                    <%= comentarios[i] %></p>
+                                    <strong> <a href="/profiles"><%= product.email[i] %></a> </strong>
+                                    <%= product.comentarios[i] %></p>
                                 </div>
                             </article>
                         <% } %> 
 
                 </section>
-                <form class="form" action="/products/detail/<%= products.id %>" method="get">
+                <form class="form" action="/products/detail/<%= product.id %>" method="get">
                     <input class="form-input" type="text" value="" placeholder="Agregar comentario">
                     <button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
                 </form>

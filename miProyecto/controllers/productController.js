@@ -56,7 +56,7 @@ const productController = {
       //   mail.push(result[i].email)
       // }
       
-      for (let i = 0; i < productos.length; i++) {
+      for (let i = 0; i < result.length; i++) {
         comentarios_productos = product.comentarios[i];
       }
 

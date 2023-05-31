@@ -18,7 +18,7 @@ const profileController = {
   store: function (req, res) {
     let info = req.body;
     
-    if (info.contrasenna < 3){
+    if (info.contrasenna < 3 || info.email == '') {
       return res.redirect('/profiles/register')}
     else {
       return res.redirect('/')}

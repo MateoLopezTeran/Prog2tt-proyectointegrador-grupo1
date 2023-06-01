@@ -18,6 +18,13 @@ const profileController = {
   store: function (req, res) {
     let info = req.body;
     
+    let userStore = {
+      name: info.name,
+      email: info.email,
+      // aca hay que hacer lo de hashing
+      //password: bcrypt.hashSync(info.password, 10),
+      remember_token: ""
+  }
     if (info.contrasenna < 3 || info.email == '') {
       return res.redirect('/profiles/register')}
     else {
@@ -65,6 +72,12 @@ const profileController = {
         });
   },
   loginPost: function (req, res) {
+    let emailBuscado = req.body.email;
+    let pass = req.body.password;
+
+    let filtrado = {
+      where: [{email: emailBuscado}]
+    }
     return res.redirect('/')
   },
 

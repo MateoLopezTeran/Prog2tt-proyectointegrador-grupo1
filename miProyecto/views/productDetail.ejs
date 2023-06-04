@@ -7,7 +7,7 @@
 <div class="container products-wrapper">
     <div class="d-flex align-items-center">
         <% for( let i = 0; product.length; i++ ) { %>
-            <h2 class="products-title"><%= product.nombreProducto[i] %></h2> 
+            <h2 class="products-title"><%= product[i].nombre_producto %></h2> 
         <% } %>
         <p class="product-detail-descrption">
             <a href="/products/productsAdd">Editar</a>
@@ -18,20 +18,22 @@
     <div class="product-detail">
         <div class="row">
             <article class="col-12 col-lg-8 product-detail-info">
-                <img src=<%= product.images %> alt="" class="product-detail-img">
-                <p class="product-detail-description">
-                    <%= product.descripcion_producto %>
-                </p>
+                <% for( let i = 0; i < product.length; i++ ) { %>
+                    <img src=<%= product[i].images %> alt="" class="product-detail-img">
+                    <p class="product-detail-description">
+                        <%= product[i].descripcion_producto %>
+                    </p>
+                <% } %>
             </article>
             <div class="col-12 col-lg-4">
                 <section class="comments">
                         <% for( let i = 0; i < 5; i++ ) { %>
                             <article>
-                                <img src="<%= product.fotoPerfil[i] %>" alt="">
+                                <img src="<%= product[i].usuarios.foto_perfil %>" alt="">
                                 <div class="data">
                                     <p class="user">
-                                    <strong> <a href="/profiles"><%= product.email[i] %></a> </strong>
-                                    <%= product.comentarios[i] %></p>
+                                    <strong> <a href="/profiles"><%= product[i].usuarios.email %></a> </strong>
+                                    <%= product[i].comentarios.texto_comentario %></p>
                                 </div>
                             </article>
                         <% } %> 

@@ -24,48 +24,21 @@ const productController = {
   //   });
   // },
   products: (req, res) => {
-    let id = req.params.id
     producto
-    .findByPk(id, {include: [{association: 'comentarios'}]})
+    .findAll({include: [{association: 'comentarios'}, {association: 'usuarios'}]})
     .then(function (result) {
-      // let nombre = []
-      // for (let i = 0; i < result.length; i++) {
-      //   nombre.push(result[i].productos[i]);
-      // }
-      // /* No funciona bien */
-
-      // let fotoProduct = []
-      // for (let i = 0; i < result.length; i++) {
-      //   fotoProduct.push(result[i].productos.images);
-      // }
-      // /* res.send(fotoProduct) */
-
-      // let comments = []
-      // for (let i = 0; i < result.length; i++) {
-      //   comments.push(result[i].comentarios[i].texto_comentario);
-      // }
-      // /* No funciona bien */
-      // /* res.send(comments) */
-      // let foto = []
-      // for (let i = 0; i < result.length; i++) {
-      //   foto.push(result[i].foto_perfil)
-      // }
-      
-      // let mail = []
-      // for (let i = 0; i < result.length; i++) {
-      //   mail.push(result[i].email)
-      // }
-      
+      /* let results = []
       for (let i = 0; i < result.length; i++) {
-        comentarios_productos = product.comentarios[i];
+        results.push(result[i].comentarios)
       }
-
+      res.send(results) */
       return res.render("productDetail", {product: result});
     })
     .catch(function (err) {
       console.log(err);
     });
   },
+
   productsAdd: function(req, res) {
     return res.render('productsAdd', {
       usuario: datamodule.usuario

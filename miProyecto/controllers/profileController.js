@@ -50,7 +50,7 @@ const profileController = {
   },
   loginPost: function (req, res) {
     let emailBuscado = req.body.email;
-    let pass = req.body.password;
+    let pass = req.body.contrasenna;
 
     let filtrado = {
       where: [{email: emailBuscado}]
@@ -58,7 +58,7 @@ const profileController = {
     user.findOne(filtrado)
     .then((result) => {
       if (result != null) {
-        let claveCorrecta = bcrypt.compareSync(pass, result.password)
+        let claveCorrecta = bcrypt.compareSync(pass, result.contrasenna)
           if (claveCorrecta) {
             /* poner en session */      
             req.session.user = result.dataValues;

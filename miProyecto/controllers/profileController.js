@@ -24,8 +24,7 @@ const profileController = {
       email: info.email,
       foto_perfil: info.fotoPerfil,
       fecha_nacimiento: info.fechaNacimiento,
-      d_n_i: info.numeroDocumento, 
-      remember_token: ""
+      d_n_i: info.numeroDocumento
   }
     if (info.contrasenna.length < 3 || info.email == "") {
       return res.redirect('/profiles/register')}
@@ -36,38 +35,38 @@ const profileController = {
         return res.redirect('/profiles/login');
       })
       .catch(function (error) {
-        return res.redirect('/profiles/register')
+        return res.redirect('/profiles/profilesEdit')
       });}
     
   },    
 
   login: function (req, res) {
     if (req.session.user != undefined) {
-      return res.redirect('/movies/all');
+      return res.redirect('/profiles/profilesEdit');
     } else {
       return res.render('login');
     }
   },
   loginPost: function (req, res) {
     let emailBuscado = req.body.email;
-    let pass = req.body.contrasenna;
+    let contrasenna = req.body.contrasenna;
 
-    let filtrado = {
+    let criterio = {
       where: [{email: emailBuscado}]
     };
-    user.findOne(filtrado)
+    user.findOne(criterio)
     .then((result) => {
       if (result != null) {
-        let claveCorrecta = bcrypt.compareSync(pass, result.contrasenna)
+        let claveCorrecta = bcrypt.compareSync(contrasenna, result.contrasenna)
           if (claveCorrecta) {
             /* poner en session */      
             req.session.user = result.dataValues;
-            if (req.body.rememberme != undefined) {
-              res.cookie('userId', result.id, {maxAge: 1000 * 60 * 15});
+            if (req.body.recordarme != undefined) {
+              res.cookie('id', result.id, {maxAge: 1000 * 60 * 15});
             }   
-              return res.redirect('/movies/all');
+              return res.redirect('/');
           } else {
-              return res.send("Existe el mail y pero la password es incorrecta");
+              return res.send("Existe el mail pero la contrasenna es incorrecta");
           }
       } else {
           return res.send("Noooo Existe el mail")

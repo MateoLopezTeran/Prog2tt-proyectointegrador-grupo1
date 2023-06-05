@@ -32,8 +32,9 @@ const indexController = {
       .findAll({
         where: [
           {nombre_producto: {[op.like]: "%" + busqueda + "%"}}
-        ]
-      }, {include: [{association: 'comentarios'}]})
+        ],
+        include: [{association: 'comentarios'}]
+      })
       .then(function (result) {
         if (searchResults == null) {
           res.send('No hay resultados para su criterio de búsqueda')

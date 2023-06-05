@@ -11,7 +11,7 @@ const indexController = {
   index: (req, res) => {
     let criterio = {
       order: [['created_at', 'DESC']],
-      include: [{association: 'comentarios'}]
+      include: [{association: 'comentarios'},{association: 'usuarios'}]
     };
     
     producto

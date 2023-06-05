@@ -24,14 +24,24 @@ const productController = {
   //   });
   // },
   products: (req, res) => {
-    producto
-    .findAll({include: [{association: 'comentarios'}, {association: 'usuarios'}]})
+    const primary_key = req.params.id
+    const rel = {
+      include: [
+        {
+          association: 'comentarios', 
+          include: [{association: 'usuarios' }] },
+        
+      ] 
+    }
+    producto.findByPk(primary_key, rel)
+    //.findAll({include: [{association: 'comentarios'}, {association: 'usuarios'}]})
     .then(function (result) {
+      console.log(result)
       /* let results = []
       for (let i = 0; i < result.length; i++) {
         results.push(result)
-      }
-      res.send(results) */
+      } */
+     
       return res.render("productDetail", {product: result});
     })
     .catch(function (err) {

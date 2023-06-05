@@ -1,4 +1,3 @@
-const { log } = require('console');
 const datamodule = require('../data/datamodule')
 const db = require("../database/models");
 const user = db.Usuario;
@@ -53,24 +52,11 @@ const profileController = {
   },    
 
   login: function (req, res) {
-    let info = req.body;
-    let criterio = {
-      where: [
-        { email: info.email },
-      ],
+    if (req.session.user != undefined) {
+      return res.redirect('/movies/all');
+    } else {
+      return res.render('login');
     }
-    user.findOne(criterio)
-        .then(function (result) {
-          if (result == null) {
-            return res.redirect('/profiles/login')
-          } else {
-            // aca va la comparacion del hasheo de la contraseña y el redirect tmb es provisorio
-            return res.redirect('/')
-          }
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
   },
   loginPost: function (req, res) {
     let emailBuscado = req.body.email;

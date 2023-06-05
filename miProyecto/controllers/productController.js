@@ -29,7 +29,7 @@ const productController = {
     .then(function (result) {
       /* let results = []
       for (let i = 0; i < result.length; i++) {
-        results.push(result[i].comentarios)
+        results.push(result)
       }
       res.send(results) */
       return res.render("productDetail", {product: result});

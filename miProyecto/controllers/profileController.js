@@ -35,7 +35,7 @@ const profileController = {
         return res.redirect('/profiles/login');
       })
       .catch(function (error) {
-        return res.redirect('/profiles/profilesEdit')
+        return res.redirect('/profiles/profilesEdit') /* funciona pero hay que poner todos los campos obligatoriamente */
       });}
     
   },    

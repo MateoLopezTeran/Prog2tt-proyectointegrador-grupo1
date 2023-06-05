@@ -19,36 +19,27 @@ const profileController = {
     let info = req.body;
     
     let userStore = {
-      name: info.name,
+      contrasenna: info.contrasenna,
       email: info.email,
-      // aca hay que hacer lo de hashing
+      foto_perfil: info.fotoPerfil,
+      fecha_nacimiento: info.fechaNacimiento,
+      d_n_i: info.numeroDocumento, 
       //password: bcrypt.hashSync(info.password, 10),
       remember_token: ""
   }
-    if (info.contrasenna < 3 || info.email == '') {
+    if (info.contrasenna < 3 || info.email == "") {
       return res.redirect('/profiles/register')}
     else {
-      return res.redirect('/')}
+      user.create(userStore)
+      .then(function (result) {
+        return res.redirect('/profiles/profilesEdit');
+      })
+      .catch(function (error) {
+        console.log("error = " + error);
+        let mensaje = "El mail se encuentra en uso";
+        return res.redirect('/profiles/register')
+      });}
     
-
-    let userSave = {
-      email: info.email,
-      contrasenna: info.contrasenna
-    }
-    // en este create hay q sgregarle q la clave se envia encriptada y esta comentado para q no cambie todo el tiempo la sql
-
-    /*  
-    user.create(userSave)
-    .then(function (result) {
-      let mensaje = ""
-      return res.redirect('/profiles/login');
-    })
-    .catch(function (error) {
-      console.log(error);
-      let mensaje = "El mail se encuentra en uso";
-      return res.redirect('/profiles/register')
-    });
-*/
   },    
 
   login: function (req, res) {

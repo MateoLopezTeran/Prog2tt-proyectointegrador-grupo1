@@ -1,7 +1,7 @@
-const { log } = require('console');
 const datamodule = require('../data/datamodule')
 const db = require("../database/models");
 const user = db.Usuario;
+const bcrypt = require('bcryptjs');
 
 const profileController = {
   usuario: function (req, res) {
@@ -20,24 +20,22 @@ const profileController = {
     let info = req.body;
     
     let userStore = {
-      contrasenna: info.contrasenna,
+      contrasenna: bcrypt.hashSync(info.contrasenna, 10),
       email: info.email,
       foto_perfil: info.fotoPerfil,
       fecha_nacimiento: info.fechaNacimiento,
       d_n_i: info.numeroDocumento, 
-      //password: bcrypt.hashSync(info.password, 10),
       remember_token: ""
   }
-    if (info.contrasenna < 3 || info.email == "") {
+    if (info.contrasenna.length < 3 || info.email == "") {
       return res.redirect('/profiles/register')}
     else {
       user.create(userStore)
       .then(function (result) {
+        //aca te tiene que enviar al login pero no esta funcionando
         return res.redirect('/profiles/profilesEdit');
       })
       .catch(function (error) {
-        console.log("error = " + error);
-        let mensaje = "El mail se encuentra en uso";
         return res.redirect('/profiles/register')
       });}
     

@@ -10,6 +10,7 @@ const profileController = {
     data: datamodule.productos
     })
   },
+
   //este es el get
   register: function (req, res) {
     return res.render('register')

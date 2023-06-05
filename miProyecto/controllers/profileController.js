@@ -33,7 +33,7 @@ const profileController = {
       user.create(userStore)
       .then(function (result) {
         //aca te tiene que enviar al login pero no esta funcionando
-        return res.redirect('/profiles/profilesEdit');
+        return res.redirect('/profiles/login');
       })
       .catch(function (error) {
         return res.redirect('/profiles/register')

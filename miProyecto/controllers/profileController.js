@@ -72,9 +72,13 @@ const profileController = {
           return res.send("Noooo Existe el mail")
       }
     }).catch((err) => {
-        console.log(err);
     });
    
+  },
+
+  cerrarSesion: function(req, res){
+    res.clearCookie('id');
+    return res.render('profilesEdit')
   },
 
   profilesEdit: function (req, res) {

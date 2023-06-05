@@ -4,7 +4,6 @@ var router = express.Router();
 const profileController = require('../controllers/profileController');
 
 router.get('/', profileController.usuario);
-router.get('/profilesEdit', profileController.profilesEdit);
 
 // Para obtener un formulario
 router.get('/register', profileController.register);
@@ -15,5 +14,9 @@ router.post('/register', profileController.store);
 router.get('/login', profileController.login);
 // para loguear al usuario y redirigirlo al index
 router.post('/login', profileController.loginPost);
+
+router.get('/login', profileController.cerrarSesion); /* funciona raro */
+
+router.get('/profilesEdit', profileController.profilesEdit);
 
 module.exports = router;

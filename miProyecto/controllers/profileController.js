@@ -1,4 +1,4 @@
-const datamodule = require('../data/datamodule')
+const datamodule = require('../data/datamodule');
 const db = require("../database/models");
 const user = db.Usuario;
 const bcrypt = require('bcryptjs');
@@ -42,24 +42,11 @@ const profileController = {
   },    
 
   login: function (req, res) {
-    let info = req.body;
-    let criterio = {
-      where: [
-        { email: info.email },
-      ],
+    if (req.session.user != undefined) {
+      return res.redirect('/movies/all');
+    } else {
+      return res.render('login');
     }
-    user.findOne(criterio)
-        .then(function (result) {
-          if (result == null) {
-            return res.redirect('/profiles/login')
-          } else {
-            // aca va la comparacion del hasheo de la contraseña y el redirect tmb es provisorio
-            return res.redirect('/')
-          }
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
   },
   loginPost: function (req, res) {
     let emailBuscado = req.body.email;
@@ -67,8 +54,28 @@ const profileController = {
 
     let filtrado = {
       where: [{email: emailBuscado}]
-    }
-    return res.redirect('/')
+    };
+    user.findOne(filtrado)
+    .then((result) => {
+      if (result != null) {
+        let claveCorrecta = bcrypt.compareSync(pass, result.password)
+          if (claveCorrecta) {
+            /* poner en session */      
+            req.session.user = result.dataValues;
+            if (req.body.rememberme != undefined) {
+              res.cookie('userId', result.id, {maxAge: 1000 * 60 * 15});
+            }   
+              return res.redirect('/movies/all');
+          } else {
+              return res.send("Existe el mail y pero la password es incorrecta");
+          }
+      } else {
+          return res.send("Noooo Existe el mail")
+      }
+    }).catch((err) => {
+        console.log(err);
+    });
+   
   },
 
   profilesEdit: function (req, res) {

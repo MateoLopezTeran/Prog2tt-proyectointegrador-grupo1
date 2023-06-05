@@ -21,10 +21,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/products', productsRouter);
-app.use('/profiles', profilesRouter);
-
 /* antes de las rutas debemos configurar la session */
 app.use(session({secret: "myApp", resave: false, saveUninitialized: true}))
 
@@ -61,6 +57,10 @@ app.use(function(req, res, next) {
   }
   
 })
+
+app.use('/', indexRouter);
+app.use('/products', productsRouter);
+app.use('/profiles', profilesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

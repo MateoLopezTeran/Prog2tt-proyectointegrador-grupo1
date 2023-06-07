@@ -1,5 +1,6 @@
 const datamodule = require('../data/datamodule');
 const db = require("../database/models");
+const producto = db.Producto;
 const user = db.Usuario;
 const bcrypt = require('bcryptjs');
 
@@ -78,7 +79,20 @@ const profileController = {
 
   cerrarSesion: function(req, res){
     res.clearCookie('id');
-    return res.redirect('/')
+
+    let criterio = {
+      order: [['created_at', 'DESC']],
+      include: [{association: 'comentarios'},{association: 'usuarios'}]
+    };
+
+    producto
+      .findAll(criterio)
+      .then(function (result) {
+        return res.render("index", { productos: result });
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
   },
 
   profilesEdit: function (req, res) {

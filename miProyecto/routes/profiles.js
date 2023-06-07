@@ -15,7 +15,7 @@ router.get('/login', profileController.login);
 // para loguear al usuario y redirigirlo al index
 router.post('/login', profileController.loginPost);
 
-router.get('/logout', profileController.cerrarSesion); /* funciona raro */
+router.get('/logout', profileController.cerrarSesion); /* funciona raro */ 
 
 router.get('/profilesEdit', profileController.profilesEdit);
 

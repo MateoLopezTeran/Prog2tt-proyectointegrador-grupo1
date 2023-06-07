@@ -69,7 +69,7 @@ const profileController = {
               return res.send("Existe el mail pero la contrasenna es incorrecta");
           }
       } else {
-          return res.send("Noooo Existe el mail")
+          return res.send("No Existe el mail")
       }
     }).catch((err) => {
     });

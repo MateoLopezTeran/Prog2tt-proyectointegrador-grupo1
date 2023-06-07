@@ -36,7 +36,6 @@ const productController = {
     producto.findByPk(primary_key, rel)
     //.findAll({include: [{association: 'comentarios'}, {association: 'usuarios'}]})
     .then(function (result) {
-      console.log(result)
       /* let results = []
       for (let i = 0; i < result.length; i++) {
         results.push(result)

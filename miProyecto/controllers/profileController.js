@@ -74,25 +74,11 @@ const profileController = {
       }
     }).catch((err) => {
     });
-  
   },
 
   cerrarSesion: function(req, res){
     res.clearCookie('id');
-
-    let criterio = {
-      order: [['created_at', 'DESC']],
-      include: [{association: 'comentarios'},{association: 'usuarios'}]
-    };
-
-    producto
-      .findAll(criterio)
-      .then(function (result) {
-        return res.render("index", { productos: result });
-      })
-      .catch(function (err) {
-        console.log(err);
-      });
+    return res.render("index")
   },
 
   profilesEdit: function (req, res) {

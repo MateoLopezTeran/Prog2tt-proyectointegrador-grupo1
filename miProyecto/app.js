@@ -52,7 +52,9 @@ app.use(function(req, res, next) {
     }).catch((err) => {
       console.log(err);
     });
-  } else {
+  } else if(req.session.user != undefined){
+    console.log(req.session.user)
+    res.locals.user = req.session.user
     return next();
   }
   

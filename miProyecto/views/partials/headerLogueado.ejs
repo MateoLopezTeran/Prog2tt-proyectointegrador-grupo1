@@ -35,17 +35,16 @@
 			<nav class="main-navbar">
 				<ul class="left-navbar">
 					<li><a href="/">Todos los productos</a></li>
-					<li><a href="/partials/headerLogueado">Hola <%= usuario %></a></li>
 					<li><a href="/products/productsAdd">Cargar productos</a></li>
 				</ul>
 	
 				<ul class="right-navbar">
 					<li><a href="/profiles">
-							<%= locals.user.email %> <i class="fas fa-user"></i> <!-- Cambiar esto -->
+							<%= locals.user.email %> <i class="fas fa-user"></i>
 						</a>
 					</li>
 					<li>
-						<form action="/profiles/logout" method="POST">
+						<form action="/profiles/logout" method="post">
 							<button class="logout" type="submit">
 								Cerrar sesión <i class="fas fa-sign-in-alt"></i>
 							</button>

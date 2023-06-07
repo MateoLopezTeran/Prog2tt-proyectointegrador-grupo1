@@ -41,7 +41,7 @@ const productController = {
       for (let i = 0; i < result.length; i++) {
         results.push(result)
       } */
-     
+      
       return res.render("productDetail", {product: result});
     })
     .catch(function (err) {

@@ -73,7 +73,7 @@ const profileController = {
       }
     }).catch((err) => {
     });
-   
+  
   },
 
   cerrarSesion: function(req, res){

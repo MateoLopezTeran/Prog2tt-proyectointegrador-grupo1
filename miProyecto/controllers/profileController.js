@@ -78,7 +78,7 @@ const profileController = {
 
   cerrarSesion: function(req, res){
     res.clearCookie('id');
-    return res.render('profilesEdit')
+    res.redirect('/')
   },
 
   profilesEdit: function (req, res) {

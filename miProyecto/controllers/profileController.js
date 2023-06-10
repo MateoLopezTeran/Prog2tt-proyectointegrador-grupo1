@@ -5,11 +5,20 @@ const user = db.Usuario;
 const bcrypt = require('bcryptjs');
 
 const profileController = {
-  usuario: function (req, res) {
-    res.render('profiles', {  
-    usuario: datamodule.usuario,
-    data: datamodule.productos
-    })
+  usuario: (req, res) => {
+    let criterio = {
+      include: [{association: 'productos'}, {association: 'comentarios'}]
+    };
+    
+    user
+      .findAll(criterio)
+      .then(function (result) {
+        /* return res.send(result) */
+        return res.render("profiles", { usuario: result });
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
   },
 
   //este es el get

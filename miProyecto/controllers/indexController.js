@@ -3,7 +3,7 @@
 /* Requerimos modulos propios */
 const db = require('../database/models');
 const producto = db.Producto;
-const usuario = db.Usuario;
+const user = db.Usuario;
 let op = db.Sequelize.Op;
  
 

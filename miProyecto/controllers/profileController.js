@@ -31,7 +31,7 @@ const profileController = {
     
     const pass = req.body.contrasenna
     req.body.contrasenna = bcrypt.hashSync(pass, 10)
-  console.log(req.body)
+    console.log(req.body)
   
     
       db.Usuario.create(req.body)

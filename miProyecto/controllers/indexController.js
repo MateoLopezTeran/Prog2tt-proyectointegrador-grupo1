@@ -26,18 +26,17 @@ const indexController = {
 
   searchResults: function (req, res) {
     let busqueda = req.query.search
-    producto
-      .findAll({
+    producto.findAll({
         where: [
           {nombre_producto: {[op.like]: "%" + busqueda + "%"}}
         ],
         include: [{association: 'comentarios'}]
       })
       .then(function (result) {
-        if (searchResults == null) {
+        if (result.length == 0) {
           res.send('No hay resultados para su criterio de búsqueda')
         }
-        return res.render('searchResults', {products: result });
+        return res.render('searchResults', {products: result});
         
 
       }).catch((err) => {

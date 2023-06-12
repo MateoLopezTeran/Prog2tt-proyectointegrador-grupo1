@@ -37,8 +37,8 @@ const productController = {
       images: info.imagen,
       nombre_producto: info.nombreProducto,
       descrdescripcion_productoipcion: info.descripcion,
-      created_at: info.fechaCarga,
-      usuario_id: 1,
+      created_at: info.fechaCarga, 
+      usuario_id: req.session.user.id ,
   }
   console.log(userStore);
     if (info.imagen == "" || info.nombreProducto == "" || info.descripcion == "" || created_at == "") {

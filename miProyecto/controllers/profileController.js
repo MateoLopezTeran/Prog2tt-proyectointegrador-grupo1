@@ -27,26 +27,24 @@ const profileController = {
   },
   //este es el post
   store: function (req, res) {
-    let info = req.body;
+    req.body;
     
-    let userStore = {
-      contrasenna: bcrypt.hashSync(info.contrasenna, 10),
-      email: info.email,
-      foto_perfil: info.fotoPerfil,
-      fecha_nacimiento: info.fechaNacimiento,
-      d_n_i: info.numeroDocumento
-  }
-    if (info.contrasenna.length < 3 || info.email == "") {
-      return res.redirect('/profiles/register')}
-    else {
-      user.create(userStore)
+    const pass = req.body.contrasenna
+    req.body.contrasenna = bcrypt.hashSync(pass, 10)
+  console.log(req.body)
+  
+    
+      db.Usuario.create(req.body)
       .then(function (result) {
+        console.log(result)
         //aca te tiene que enviar al login pero no esta funcionando
         return res.redirect('/profiles/login');
       })
       .catch(function (error) {
-        return res.redirect('/profiles/profilesEdit') /* funciona pero hay que poner todos los campos obligatoriamente */
-      });}
+        console.log(error)
+        //return res.redirect('/profiles/profilesEdit') /* funciona pero hay que poner todos los campos obligatoriamente */
+      });
+    
     
   },    
 

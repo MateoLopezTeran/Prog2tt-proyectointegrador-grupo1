@@ -24,8 +24,6 @@ const indexController = {
       });
   },
 
-  
-
   searchResults: function (req, res) {
     let busqueda = req.query.search
     producto

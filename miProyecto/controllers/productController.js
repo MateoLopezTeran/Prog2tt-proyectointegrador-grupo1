@@ -36,12 +36,11 @@ const productController = {
     let userStore = {
       images: info.imagen,
       nombre_producto: info.nombreProducto,
-      descrdescripcion_productoipcion: info.descripcion,
+      descripcion_producto: info.descripcion,
       created_at: info.fechaCarga, 
       usuario_id: req.session.user.id ,
   }
-  console.log(userStore);
-    if (info.imagen == "" || info.nombreProducto == "" || info.descripcion == "" || created_at == "") {
+    if (info.imagen == "" || info.nombreProducto == "" || info.descripcion == "" || info.fechaCarga == "") {
       return res.redirect('/products/productsAdd')}
     else {
       producto.create(userStore)
@@ -54,5 +53,5 @@ const productController = {
       });}
   },
 }
-
+ 
 module.exports = productController

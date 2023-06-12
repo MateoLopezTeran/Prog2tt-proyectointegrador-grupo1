@@ -7,6 +7,7 @@ const session = require("express-session")
 var indexRouter = require('./routes/index');
 var productsRouter = require('./routes/products');
 var profilesRouter = require('./routes/profiles');
+const { log } = require('console');
 
 
 var app = express();
@@ -55,7 +56,6 @@ app.use(function(req, res, next) {
   } else {
     return next();
   }
-  
 })
 
 app.use('/', indexRouter);

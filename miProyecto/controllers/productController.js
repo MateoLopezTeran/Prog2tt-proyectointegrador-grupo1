@@ -28,18 +28,20 @@ const productController = {
 // coments add no funciona pero esta a un pelo, hay un problema con la ruta y la pagina que no se recarga bien 
 
   comentsAdd: (req,res) => {
+    let id = req.params.id ;
     let userStore = {
       texto_comentario: req.body,
       usuario_id: req.session.user.id ,
+      producto_id: id,
       }
       comentario
         .create(userStore)
         .then(function (result) {
-          return res.redirect('/products/detail/:id');
+          return res.redirect('/products/detail/'+ id);
         })
         .catch(function (error) {
           console.log(error);
-          return res.redirect('/products/detail/:id')
+          return res.redirect('/products/detail/'+ id)
         });
   },
 

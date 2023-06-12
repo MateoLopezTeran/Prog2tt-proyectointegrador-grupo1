@@ -25,6 +25,24 @@ const productController = {
     });
   },
 
+// coments add no funciona pero esta a un pelo, hay un problema con la ruta y la pagina que no se recarga bien 
+
+  comentsAdd: (req,res) => {
+    let userStore = {
+      texto_comentario: req.body,
+      usuario_id: req.session.user.id ,
+      }
+      comentario
+        .create(userStore)
+        .then(function (result) {
+          return res.redirect('/products/detail/:id');
+        })
+        .catch(function (error) {
+          console.log(error);
+          return res.redirect('/products/detail/:id')
+        });
+  },
+
   productsAdd: function(req, res) {
     
     return res.render('productsAdd')
@@ -39,7 +57,7 @@ const productController = {
       descripcion_producto: info.descripcion,
       created_at: info.fechaCarga, 
       usuario_id: req.session.user.id ,
-  }
+      }
     if (info.imagen == "" || info.nombreProducto == "" || info.descripcion == "" || info.fechaCarga == "") {
       return res.redirect('/products/productsAdd')}
     else {

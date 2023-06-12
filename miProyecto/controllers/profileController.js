@@ -13,10 +13,7 @@ const profileController = {
     user
       .findAll(criterio)
       .then(function (result) {
-        /* for (let i = 0; i < result.length; i++) {
-          return res.send(result[i].productos)
-        } */
-        
+        return res.send(result)
         return res.render("profiles", { usuario: result });
       })
       .catch(function (err) {

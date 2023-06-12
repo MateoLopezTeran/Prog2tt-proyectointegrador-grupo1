@@ -11,9 +11,9 @@ const profileController = {
     };
     
     user
-      .findAll(criterio)
+      .findByPk(req.session.user.id , criterio)
       .then(function (result) {
-        return res.send(result)
+        /* return res.send(result) */
         return res.render("profiles", { usuario: result });
       })
       .catch(function (err) {

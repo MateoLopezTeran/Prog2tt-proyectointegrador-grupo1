@@ -1,6 +1,3 @@
-const datamodule = require('../data/datamodule')
-
-/* Requerimos modulos propios */
 const db = require('../database/models');
 const producto = db.Producto;
 const usuario = db.Usuario;
@@ -8,21 +5,7 @@ const comentario = db.Comentario;
 let op = db.Sequelize.Op;
 
 const productController = {
-  // products: function(req, res) {
-  //   let id = req.params.id;
-  //   let productos = null;
-  //   for (let i = 0; i < datamodule.productos.length; i++) {
-  //     if (id == datamodule.productos[i].id) {
-  //       productos = datamodule.productos[i];
-  //     }
-  //   };
-  //   comentarios = datamodule
-  //   return res.render('products', {
-  //   producto: productos,
-  //   comentario: comentarios
 
-  //   });
-  // },
   products: (req, res) => {
     const primary_key = req.params.id
     const rel = {
@@ -34,13 +17,7 @@ const productController = {
       ] 
     }
     producto.findByPk(primary_key, rel)
-    //.findAll({include: [{association: 'comentarios'}, {association: 'usuarios'}]})
     .then(function (result) {
-      /* let results = []
-      for (let i = 0; i < result.length; i++) {
-        results.push(result)
-      } */
-      
       return res.render("productDetail", {product: result});
     })
     .catch(function (err) {
@@ -49,12 +26,33 @@ const productController = {
   },
 
   productsAdd: function(req, res) {
-    return res.render('productsAdd', {
-      usuario: datamodule.usuario
-    })
+    
+    return res.render('productsAdd')
   },
-
-
+  
+  productsAddpost: function (req, res) {
+    let info = req.body;
+    
+    let userStore = {
+      images: info.imagen,
+      nombre_producto: info.nombreProducto,
+      descrdescripcion_productoipcion: info.descripcion,
+      created_at: info.fechaCarga,
+      usuario_id: 1,
+  }
+  console.log(userStore);
+    if (info.imagen == "" || info.nombreProducto == "" || info.descripcion == "" || created_at == "") {
+      return res.redirect('/products/productsAdd')}
+    else {
+      producto.create(userStore)
+      .then(function (result) {
+        return res.redirect('/');
+      })
+      .catch(function (error) {
+        console.log(error);
+        return res.redirect('/products/productsAdd')
+      });}
+  },
 }
 
 module.exports = productController

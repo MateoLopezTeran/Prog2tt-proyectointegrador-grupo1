@@ -30,19 +30,24 @@ const productController = {
   comentsAdd: (req,res) => {
     let id = req.params.id ;
     let userStore = {
-      texto_comentario: req.body,
+      texto_comentario: req.body.com,
       usuario_id: req.session.user.id ,
       producto_id: id,
       }
-      comentario
+      if (req.body.com == "") {
+        res.redirect('/products/detail/'+ id)
+      } else {
+        comentario
         .create(userStore)
         .then(function (result) {
           return res.redirect('/products/detail/'+ id);
         })
         .catch(function (error) {
-          console.log(error);
-          return res.redirect('/products/detail/'+ id)
+          console.log("error = " + error);
+          return res.redirect('/products/detail/'+ id);
         });
+      }
+  
   },
 
   productsAdd: function(req, res) {

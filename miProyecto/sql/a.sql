@@ -44,11 +44,11 @@ foreign key				(producto_id) references productos(id)
 );
 
 -- Usuarios
-insert into usuarios values(default, 'mlopezteran@udesa.edu.ar', '$2a$10$YZN2UbHeVYZ8lGFjs7Bn/OGVI/.yax9/RDkBrAmgb.4puipkiY7u6', '/images/users/usuario1.png', '2003-03-03', 45415555, default, default);
-insert into usuarios values(default, 'aaugier@udesa.edu.ar', '$2a$10$YZN2UbHeVYZ8lGFjs7Bn/OGVI/.yax9/RDkBrAmgb.4puipkiY7u6', '/images/users/usuario2.png', '2003-03-03', 45415344, default, default);
-insert into usuarios values(default, 'lfreixas@udesa.edu.ar', '$2a$10$YZN2UbHeVYZ8lGFjs7Bn/OGVI/.yax9/RDkBrAmgb.4puipkiY7u6', '/images/users/usuario3.png', '2003-03-03', 45415333, default, default);
-insert into usuarios values(default, 'bgomez@udesa.edu.ar', '$2a$10$YZN2UbHeVYZ8lGFjs7Bn/OGVI/.yax9/RDkBrAmgb.4puipkiY7u6', '/images/users/usuario4.png', '2003-03-03', 45415362, default, default);
-insert into usuarios values(default, 'mraad@udesa.edu.ar', '$2a$10$YZN2UbHeVYZ8lGFjs7Bn/OGVI/.yax9/RDkBrAmgb.4puipkiY7u6', '/images/users/usuario5.png', '2003-03-03', 45415362, default, default);
+insert into usuarios values(default, 'mlopezteran@udesa.edu.ar', '$2a$10$YZN2UbHeVYZ8lGFjs7Bn/OGVI/.yax9/RDkBrAmgb.4puipkiY7u6', 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSe0AOk_M87CeL3UJCDY2L0gB3o43e3UEJ7mNAJenvrAzxKoQ9W', '2003-03-03', 45415555, default, default);
+insert into usuarios values(default, 'aaugier@udesa.edu.ar', '$2a$10$YZN2UbHeVYZ8lGFjs7Bn/OGVI/.yax9/RDkBrAmgb.4puipkiY7u6', 'https://lh3.googleusercontent.com/j00mQNKmpMy_VtBYNipONXrZfo5Sy9k3MGmHQB_vtSr6wRq2qnsFDgFdz2nr53JrypClNZDet8mAkvusJTjvpqPSoL82Xd_raQbD62cC', '2003-03-03', 45415344, default, default);
+insert into usuarios values(default, 'lfreixas@udesa.edu.ar', '$2a$10$YZN2UbHeVYZ8lGFjs7Bn/OGVI/.yax9/RDkBrAmgb.4puipkiY7u6', 'https://lh3.googleusercontent.com/OUVr8HDPFjBhkN57Bp5mHuX-B4PALkIcWMJH4wXvaEkzngi_loOR8sHd73Sl55WsO9GIko7eeAktuQbScljcHPnn7YpUDXpIFuxbErc-Kw', '2003-03-03', 45415333, default, default);
+insert into usuarios values(default, 'bgomez@udesa.edu.ar', '$2a$10$YZN2UbHeVYZ8lGFjs7Bn/OGVI/.yax9/RDkBrAmgb.4puipkiY7u6', 'https://lh3.googleusercontent.com/RgOpx5uJX_FMRLm_9LDF6vB9zu_98A7l61YyODvfSa-jkdwcaKmnofZP0og47t8d21r6LDCKDBx0bd4i0SbJquwQAkX4EwuVBGIeZUHN', '2003-03-03', 45415362, default, default);
+insert into usuarios values(default, 'mraad@udesa.edu.ar', '$2a$10$YZN2UbHeVYZ8lGFjs7Bn/OGVI/.yax9/RDkBrAmgb.4puipkiY7u6', 'https://lh3.googleusercontent.com/nD6qJ8X5gGTCrAEQzQ6dXBxJs2PjM9fuK82TVP9vYbI2GDvPTHVHja_X9fihLYMm4B6B3raz75qMzrHLyVEdDIsvVayAGapBKeeZO9EQ9g', '2003-03-03', 45415362, default, default);
 
 -- Posteos
 insert into productos values(default, 'Notebook Asus', 'La notebook Asus X515EA es una solución tanto para trabajar y estudiar como para entretenerte', "/images/products/computadora_1.webp", default, default, 1);

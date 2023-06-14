@@ -13,7 +13,7 @@ const profileController = {
     user
       .findByPk(req.session.user.id , criterio)
       .then(function (result) {
-        /* return res.send(result) */
+        /* return res.send(result.foto_perfil) */
         return res.render("profiles", { usuario: result });
       })
       .catch(function (err) {

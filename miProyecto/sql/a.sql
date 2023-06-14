@@ -9,7 +9,7 @@ create table usuarios (
 /* NOMBRE				TIPO			RESTRICCIONES */
 id						int				unsigned primary key auto_increment,
 email					varchar(100)	unique not null,
-contrasenna				varchar(500)		not null,
+contrasenna				varchar(500)	not null,
 foto_perfil				varchar(200)	not null,
 fecha_nacimiento		date			not null,
 d_n_i				    int				not null,
@@ -22,8 +22,8 @@ create table productos (
 /* NOMBRE				TIPO			RESTRICCIONES */
 id						int				unsigned primary key auto_increment,
 nombre_producto			varchar(150)	not null,
-descripcion_producto	    varchar(200)	not null,
-images                  varchar(100)    not null,
+descripcion_producto	varchar(200)	not null,
+images                  varchar(1000)    not null,
 created_at				timestamp default current_timestamp,
 updated_at				timestamp default current_timestamp on update current_timestamp,
 usuario_id				int 			unsigned,
@@ -44,11 +44,11 @@ foreign key				(producto_id) references productos(id)
 );
 
 -- Usuarios
-insert into usuarios values(default, 'mlopezteran@udesa.edu.ar', 'wawateran', '/images/users/usuario1.png', '2003-03-03', 45415555, default, default);
-insert into usuarios values(default, 'aaugier@udesa.edu.ar', 'coloso21', '/images/users/usuario2.png', '2003-03-03', 45415344, default, default);
-insert into usuarios values(default, 'lfreixas@udesa.edu.ar', 'luchito22', '/images/users/usuario3.png', '2003-03-03', 45415333, default, default);
-insert into usuarios values(default, 'bgomez@udesa.edu.ar', 'brian123', '/images/users/usuario4.png', '2003-03-03', 45415362, default, default);
-insert into usuarios values(default, 'mraad@udesa.edu.ar', 'miguelraad123', '/images/users/usuario5.png', '2003-03-03', 45415362, default, default);
+insert into usuarios values(default, 'mlopezteran@udesa.edu.ar', '$2a$10$YZN2UbHeVYZ8lGFjs7Bn/OGVI/.yax9/RDkBrAmgb.4puipkiY7u6', '/images/users/usuario1.png', '2003-03-03', 45415555, default, default);
+insert into usuarios values(default, 'aaugier@udesa.edu.ar', '$2a$10$YZN2UbHeVYZ8lGFjs7Bn/OGVI/.yax9/RDkBrAmgb.4puipkiY7u6', '/images/users/usuario2.png', '2003-03-03', 45415344, default, default);
+insert into usuarios values(default, 'lfreixas@udesa.edu.ar', '$2a$10$YZN2UbHeVYZ8lGFjs7Bn/OGVI/.yax9/RDkBrAmgb.4puipkiY7u6', '/images/users/usuario3.png', '2003-03-03', 45415333, default, default);
+insert into usuarios values(default, 'bgomez@udesa.edu.ar', '$2a$10$YZN2UbHeVYZ8lGFjs7Bn/OGVI/.yax9/RDkBrAmgb.4puipkiY7u6', '/images/users/usuario4.png', '2003-03-03', 45415362, default, default);
+insert into usuarios values(default, 'mraad@udesa.edu.ar', '$2a$10$YZN2UbHeVYZ8lGFjs7Bn/OGVI/.yax9/RDkBrAmgb.4puipkiY7u6', '/images/users/usuario5.png', '2003-03-03', 45415362, default, default);
 
 -- Posteos
 insert into productos values(default, 'Notebook Asus', 'La notebook Asus X515EA es una solución tanto para trabajar y estudiar como para entretenerte', "/images/products/computadora_1.webp", default, default, 1);

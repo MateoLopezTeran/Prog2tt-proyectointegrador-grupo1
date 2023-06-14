@@ -1,5 +1,3 @@
-
-
 /* Requerimos modulos propios */
 const db = require('../database/models');
 const producto = db.Producto;
@@ -32,12 +30,25 @@ const indexController = {
         ],
         include: [{association: 'comentarios'}]
       })
-      .then(function (result) {
-        if (result.length == 0) {
-          res.send('No hay resultados para su criterio de búsqueda')
-        }
-        return res.render('searchResults', {products: result});
-        
+      .then(function (productos_busqueda) {
+        //let busqueda_usuarios = req.query.search
+        //let productos_busqueda = result
+        user.findAll({
+          where: [
+            {email: {[op.like]: "%" + busqueda + "%"}}
+          ]
+        }).then(function (usuarios) {
+          //let usuario = result
+          if (usuarios.length < 1 && productos_busqueda.length < 1) {
+            return res.send('No hay resultados para su criterio de búsqueda')
+          }
+          //return res.json({productos_busqueda, usuarios})
+          return res.render('searchResults', {products: productos_busqueda, user: usuarios});
+        })
+        .catch(function (err) {
+          console.log(err)
+        })
+         
 
       }).catch((err) => {
         console.log(err)

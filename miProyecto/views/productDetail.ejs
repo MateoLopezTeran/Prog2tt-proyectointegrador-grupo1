@@ -38,7 +38,7 @@
                                 <img src="<%= product.comentarios[i].usuarios.foto_perfil %>" alt="">
                                 <div class="data">
                                     <p class="user">
-                                    <strong> <a href="/profiles"><%= product.comentarios[i].usuarios.email %></a> </strong>
+                                    <strong> <a href="/profiles/id/<%= product.comentarios[i].usuarios.id %>"><%= product.comentarios[i].usuarios.email %></a> </strong>
                                     <%= product.comentarios[i].texto_comentario %></p>
                                 </div>
                             </article>

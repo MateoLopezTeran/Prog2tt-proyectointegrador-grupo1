@@ -6,12 +6,13 @@ const bcrypt = require('bcryptjs');
 
 const profileController = {
   usuario: (req, res) => {
+    let id = req.params.id
     let criterio = {
       include: [{association: 'productos'}, {association: 'comentarios'}]
     };
     
     user
-      .findByPk(req.session.user.id , criterio)
+      .findByPk(id, criterio)
       .then(function (result) {
         return res.render("profiles", { usuario: result });
       })

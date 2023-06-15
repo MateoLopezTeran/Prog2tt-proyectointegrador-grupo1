@@ -3,7 +3,7 @@ var router = express.Router();
 
 const profileController = require('../controllers/profileController');
 
-router.get('/', profileController.usuario);
+router.get('/id/:id', profileController.usuario);
 
 // Para obtener un formulario
 router.get('/register', profileController.register);

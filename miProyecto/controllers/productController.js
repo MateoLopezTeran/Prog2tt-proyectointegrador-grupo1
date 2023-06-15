@@ -83,7 +83,6 @@ const productController = {
   },
 
   productEdit : function (req,res) {
-  
     const primary_key = req.params.id
     const rel = {
       include: [

@@ -91,22 +91,30 @@ const productController = {
           include: [{association: 'usuarios' }] },
       ] 
     }
-    producto.findByPk(primary_key, rel)
-    .then(function (result) {
 
-      /* if (result.usuario.id == primary_key) {
+    if (req.session.user != null ) {
+      producto.findByPk(primary_key, rel)
+    .then(function (result) {
+      /* 
+      let a = result.usuario_id
+      let b = req.session.user.id
+      if (a == b) {
         return res.render("productsEdit", {product: result , id: primary_key});
       } else {
         return res.redirect('/');
-      } */
+      } 
+      
+      ESTE IF NO FUNCIONA Y ES EL QUE DEBERIA CORROBORAR QUE LOS USUARIOS SEAN EL MISMO
 
-      // ese if deberia servir para que solo puedas editar productos que subiste vos pero no me reconoce el result.usuario_id
-
+      */
       return res.render("productsEdit", {product: result , id: primary_key});
     })
     .catch(function (err) {
       console.log(err);
     });
+    } else {
+      return res.redirect('/profiles/login')
+    }
   }, 
 
   productEditPost : function (req,res) {

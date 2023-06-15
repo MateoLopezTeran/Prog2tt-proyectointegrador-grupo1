@@ -92,10 +92,12 @@ const productController = {
           include: [{association: 'usuarios' }] },
       ] 
     }
-    producto.findByPk(primary_key, rel)
+
+    if (req.session.user != null ) {
+      producto.findByPk(primary_key, rel)
     .then(function (result) {
 
-      /* if (result.usuario.id == primary_key) {
+      /* if (result.usuario.id == req.session.user.id) {
         return res.render("productsEdit", {product: result , id: primary_key});
       } else {
         return res.redirect('/');
@@ -108,6 +110,9 @@ const productController = {
     .catch(function (err) {
       console.log(err);
     });
+    } else {
+      return res.redirect('/profiles/login')
+    }
   }, 
 
   productEditPost : function (req,res) {

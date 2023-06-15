@@ -81,6 +81,50 @@ const productController = {
         return res.redirect('/products/productsAdd')
       });}
   },
+
+  productEdit : function (req,res) {
+  
+    const primary_key = req.params.id
+    const rel = {
+      include: [
+        {
+          association: 'comentarios', 
+          include: [{association: 'usuarios' }] },
+      ] 
+    }
+    producto.findByPk(primary_key, rel)
+    .then(function (result) {
+
+      /* if (result.usuario.id == primary_key) {
+        return res.render("productsEdit", {product: result , id: primary_key});
+      } else {
+        return res.redirect('/');
+      } */
+
+      // ese if deberia servir para que solo puedas editar productos que subiste vos pero no me reconoce el result.usuario_id
+
+      return res.render("productsEdit", {product: result , id: primary_key});
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
+  }, 
+
+  productEditPost : function (req,res) {
+    let id = req.params.id;
+    let info = req.body;
+    producto
+      .update(info, {
+        where: [{ id: id }],
+      })
+      .then((result) => {
+        return res.redirect("/products/detail/" + id);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
 }
  
 module.exports = productController

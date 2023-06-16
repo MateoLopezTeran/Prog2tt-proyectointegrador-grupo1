@@ -95,18 +95,17 @@ const productController = {
     if (req.session.user != null ) {
       producto.findByPk(primary_key, rel)
     .then(function (result) {
-      /* 
-      let a = result.usuario_id
-      let b = req.session.user.id
-      if (a == b) {
-        return res.render("productsEdit", {product: result , id: primary_key});
-      } else {
-        return res.redirect('/');
-      } 
       
-      ESTE IF NO FUNCIONA Y ES EL QUE DEBERIA CORROBORAR QUE LOS USUARIOS SEAN EL MISMO
-
+      /* 
+      Es el if que corrobora que el que cargo el producto este logueado
+      Sigue sin andar porque no reconoce product
+      if (req.session.user && req.session.user.id === result.usuario_id){
+        return res.render('productsEdit', {product: result, id: primary_key})
+      } else {
+        return res.render('productDetail')
+      } 
       */
+      
       return res.render("productsEdit", {product: result , id: primary_key});
     })
     .catch(function (err) {

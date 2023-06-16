@@ -9,7 +9,7 @@ const indexController = {
   index: (req, res) => {
     let criterio = {
       order: [['created_at', 'DESC']],
-      include: [{association: 'comentarios'},{association: 'usuarios'}]
+      include: [{association: 'comentarios'}, {association: 'usuarios'}]
     };
     
     producto
@@ -29,16 +29,20 @@ const indexController = {
           {nombre_producto: {[op.like]: "%" + busqueda + "%"}}
         ],
         order: [['created_at', 'DESC']],
-        include: [{association: 'comentarios'}]
+        include: [{association: 'comentarios'}, {association: 'usuarios'}]
       })
       .then(function (productos_busqueda) {
+        if (productos_busqueda.length < 1) {
+          return res.send('No hay resultados para su criterio de búsqueda')
+        }
+        return res.render('searchResults', {products: productos_busqueda})
         //let busqueda_usuarios = req.query.search
         //let productos_busqueda = result
-        user.findAll({
+        /* user.findAll({
           where: [
             {email: {[op.like]: "%" + busqueda + "%"}}
           ]
-        }).then(function (usuarios) {
+        }) *//* .then(function (usuarios) {
           //let usuario = result
           if (usuarios.length < 1 && productos_busqueda.length < 1) {
             return res.send('No hay resultados para su criterio de búsqueda')
@@ -48,12 +52,33 @@ const indexController = {
         })
         .catch(function (err) {
           console.log(err)
-        })
+        }) */
          
 
       }).catch((err) => {
         console.log(err)
       })
+  },
+  searchResultsUsers: function (req, res) { 
+    let busqueda = req.query.search
+    user.findAll({
+    where: [
+      {email: {[op.like]: "%" + busqueda + "%"}}
+      ]
+    })
+    .then(function (result) {
+      if (result.length < 1) {
+        return res.send('No hay resultados para su criterio de búsqueda')
+      }
+      return res.render('searchResultsUsers', {usuario: result});
+    })  
+    .catch(function (err) {
+      console.log(err)
+    });
+  },
+
+  busquedaUsuarios: function (req, res) {
+    return res.render('busquedaUsuarios')
   }
 }
  

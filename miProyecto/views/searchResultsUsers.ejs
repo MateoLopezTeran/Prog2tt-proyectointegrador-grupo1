@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <%- include('./partials/head') %>
+
+  <body>
+	<% if (locals.user != null) { %>
+		<%- include('./partials/headerLogueado') %>
+	  <% } else { %>
+		<%- include('./partials/header') %>
+	<% } %>
+
+    <div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Resultados de búsqueda</h2>
+			</div>
+            <!-- Show the "busqueda" of users -->
+            <% for( let i = 0; i < usuario.length; i++ ) { %>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <section class="product-box">
+                        <a href="/profiles/id/<%= usuario[i].id %>">
+                            
+                            <article class="product-box_data">
+                                <h2><%= usuario[i].email %></h2>
+                                <h2>Id del perfil = <%= usuario[i].id %></h2>
+                            </article>
+                            </a>
+                        </section>
+                    </div>
+            <% } %>
+	<%- include('./partials/footer') %>
+  </body>
+</html>

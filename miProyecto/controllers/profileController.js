@@ -47,7 +47,7 @@ const profileController = {
 
   login: function (req, res) {
     if (req.session.user != undefined) {
-      return res.redirect('/profiles/profilesEdit');
+      return res.redirect(`/profiles/profilesEdit/${req.session.user.id}`);
     } else {
       return res.render('login');
     }
@@ -96,7 +96,6 @@ const profileController = {
       return res.render("profilesEdit", {user: result , id: primary_key});
     })
     .catch(function (err) {
-      console.log(err);
     });
     } else {
       return res.redirect('/')

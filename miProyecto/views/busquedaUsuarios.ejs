@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %>
+<body>
+    <% if (locals.user != null) { %>
+		<%- include('./partials/headerLogueado') %>
+	  <% } else { %>
+		<%- include('./partials/header') %>
+	<% } %>
+    
+    <h1>Buscador de usuarios</h1>
+    
+    <div class="col-7 col-md-6">
+        <form action="/searchResultsUsers" method="GET" class="search-form">
+            <input type="text" name="search" placeholder="Buscar usuarios" class="search-form_input">
+            <button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
+        </form>
+    </div>
+    <%- include('./partials/footer') %>
+</body>
+</html>

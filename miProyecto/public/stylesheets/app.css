@@ -323,6 +323,7 @@ hr {
 .product-detail-info {
   border-right: 1px solid var(--light-gray);
   padding: 15px;
+  border-bottom: 77px;
   /* height: 100%; */
 }
 

@@ -27,6 +27,8 @@
             <label for="email">Imagen:</label>
         }   <input type="text" name="images" value="<%= product.images %>" />
 
+            <input type="hidden" name="idd" value="<%= product.usuario_id %>">
+
             <button type="text" class="submit">Actualizar</button>
 	</h2>
         <%- include('./partials/footer') %>

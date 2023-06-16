@@ -95,17 +95,6 @@ const productController = {
     if (req.session.user != null ) {
       producto.findByPk(primary_key, rel)
     .then(function (result) {
-      
-      /* 
-      Es el if que corrobora que el que cargo el producto este logueado
-      Sigue sin andar porque no reconoce product
-      if (req.session.user && req.session.user.id === result.usuario_id){
-        return res.render('productsEdit', {product: result, id: primary_key})
-      } else {
-        return res.render('productDetail')
-      } 
-      */
-      
       return res.render("productsEdit", {product: result , id: primary_key});
     })
     .catch(function (err) {
@@ -119,16 +108,29 @@ const productController = {
   productEditPost : function (req,res) {
     let id = req.params.id;
     let info = req.body;
-    producto
-      .update(info, {
-        where: [{ id: id }],
-      })
-      .then((result) => {
-        return res.redirect("/products/detail/" + id);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    let a = req.session.user.id;
+    let b = info.idd
+    
+    if (a == b) {
+      let userStore = {
+        nombre_producto : info.nombre_producto,
+        descripcion_producto : info.descripcion_producto,
+        images : info.images,
+      }
+      producto
+        .update(userStore, {
+          where: [{ id: id }],
+        })
+        .then((result) => {
+          return res.redirect("/products/detail/" + id);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      return res.redirect('/');
+    }
+
   }
 
 }

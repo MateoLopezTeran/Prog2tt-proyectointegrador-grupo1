@@ -17,6 +17,8 @@ router.post('/login', profileController.loginPost);
 
 router.get('/logout', profileController.cerrarSesion);
 
-router.get('/profilesEdit', profileController.profilesEdit);
+router.get('/profilesEdit/:id', profileController.profilesEdit);
+router.post('/profilesEdit/:id', profileController.profilesEditPost);
+
 
 module.exports = router;

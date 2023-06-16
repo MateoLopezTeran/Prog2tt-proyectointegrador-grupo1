@@ -14,26 +14,25 @@
 			<!-- Show the "ultimos" products -->
     <h2 class="col-12">
         <!-- Formulario -->
-        <form action="/profiles/id/<%= locals.user.id %>" method="get">
+        <form action="/profiles/profilesEdit/<%= user.id %>" method="POST">
             <label for="email">Email:</label>
-            <input type="email" name="email" value="">
+            <input type="email" name="email" value="<%= user.email %>">
 
-            <label for="usuario">Nombre de usuario: </label>
-            <input type="text" name="usuario" value="">
+            <label for="usuario">Foto de perfil: </label>
+            <input type="text" name="foto_perfil" value="<%= user.foto_perfil %>">
                         
             <label for="contraseña">Contraseña:</label>
-            <input type="password" name="contraseña" value="">
+            <input type="password" name="contrasenna" value="">
                         
             <label for="fechaNacimiento">Fecha de nacimiento</label>
-            <input type="date" name="fechaNacimiento" value="">
+            <input type="date" name="fecha_nacimiento" value="<%= user.fecha_nacimiento %>">
                         
             <label for="numeroDocumento">Número de documento</label>
-            <input type="number" name="numeroDocumento" value="">
-                        
-            <label for="fotoPerfil">Foto de perfil:</label>
-            <input type="text" name="fotoPerfil" value="">
+            <input type="number" name="d_n_i" value="<%= user.d_n_i %>">
 
-            <button type="submit">Enviar</button>
+            <input type="hidden" name="idd" value="<%= user.id %>">
+
+            <button type="submit">ACTUALIZAR PERFIL</button>
         </form>
         <!-- Formulario -->
 	</h2>

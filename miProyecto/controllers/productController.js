@@ -9,12 +9,14 @@ const productController = {
   products: (req, res) => {
     const primary_key = req.params.id
     const rel = {
-      order: [['created_at', 'DESC']],
+     order: [['created_at', 'DESC']],
       include: [
         {
           association: 'comentarios', 
           include: [{association: 'usuarios' }] },
-        ]
+        
+      ],
+  
     }
     producto.findByPk(primary_key, rel)
     .then(function (result) {
@@ -36,7 +38,6 @@ const productController = {
         if (req.session.user != null) { 
           let id = req.params.id ;
           let userStore = {
-          order: [['created_at', 'DESC']],
           texto_comentario: req.body.com,
           usuario_id: req.session.user.id ,
           producto_id: id,

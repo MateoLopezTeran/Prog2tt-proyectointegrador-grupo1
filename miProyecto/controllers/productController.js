@@ -17,7 +17,7 @@ const productController = {
     }
     producto.findByPk(primary_key, rel)
     .then(function (result) {
-      /* return res.send(result) */
+      /* return res.send(result.comentarios) */
       return res.render("productDetail", {product: result});
     })
     .catch(function (err) {

@@ -18,9 +18,12 @@
         </h2>
     </div>
     <div>
-        <% for( let i = 0; i < product.comentarios.length; i++ ) { %>
+        <h2> Publicado por: 
+            <% for( let i = 0; i < 1; i++ ) { %>
                 <a href="/profiles/id/<%= product.comentarios[i].usuarios.id %>"><%= product.comentarios[i].usuarios.email %></a>
-        <% } %>
+            <% } %>
+        </h2>
+        
     </div>
     <div class="product-detail">
         <div class="row">

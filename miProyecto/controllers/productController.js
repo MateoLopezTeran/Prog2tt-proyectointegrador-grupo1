@@ -9,11 +9,14 @@ const productController = {
   products: (req, res) => {
     const primary_key = req.params.id
     const rel = {
+     order: [['created_at', 'DESC']],
       include: [
         {
           association: 'comentarios', 
           include: [{association: 'usuarios' }] },
-      ]
+        
+      ],
+  
     }
     producto.findByPk(primary_key, rel)
     .then(function (result) {
@@ -28,6 +31,7 @@ const productController = {
 // coments add no funciona pero esta a un pelo, hay un problema con la ruta y la pagina que no se recarga bien 
 
   comentsAdd: (req,res) => {
+    
       if (req.body.com == "") {
         res.redirect('/products/detail/'+ id)
       } else {

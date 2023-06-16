@@ -28,6 +28,7 @@ const indexController = {
         where: [
           {nombre_producto: {[op.like]: "%" + busqueda + "%"}}
         ],
+        order: [['created_at', 'DESC']],
         include: [{association: 'comentarios'}]
       })
       .then(function (productos_busqueda) {

@@ -14,7 +14,7 @@
 			<!-- Show the "ultimos" products -->
     <h2 class="col-12">
         <!-- Formulario -->
-        <form action="/profiles" method="get">
+        <form action="/profiles/id/<%= locals.user.id %>" method="get">
             <label for="email">Email:</label>
             <input type="email" name="email" value="">
 

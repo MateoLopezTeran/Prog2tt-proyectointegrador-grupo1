@@ -31,9 +31,7 @@ const profileController = {
     
     const pass = req.body.contrasenna
     req.body.contrasenna = bcrypt.hashSync(pass, 10)
-    console.log(req.body)
   
-    
       db.Usuario.create(req.body)
       .then(function (result) {
         console.log(result)
@@ -42,8 +40,7 @@ const profileController = {
       })
       .catch(function (error) {
         console.log(error)
-        //return res.redirect('/profiles/profilesEdit') /* funciona pero hay que poner todos los campos obligatoriamente */
-      });
+        });
     
     
   },    
@@ -90,7 +87,49 @@ const profileController = {
   },
 
   profilesEdit: function (req, res) {
-    res.render('profilesEdit')
+    const primary_key = req.params.id
+
+    if (req.session.user != null ) {
+    user
+    .findByPk(primary_key)
+    .then(function (result) {
+      return res.render("profilesEdit", {user: result , id: primary_key});
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
+    } else {
+      return res.redirect('/')
+    }
+  },
+
+  profilesEditPost: function (req, res) {
+    let id = req.params.id;
+    let info = req.body;
+    let a = req.session.user.id;
+    let b = info.idd
+    
+    if (a == b) {
+      let userStore = {
+        contrasenna : bcrypt.hashSync(info.contrasenna, 10),
+        email : info.email,
+        foto_perfil : info.foto_perfil,
+        fecha_nacimiento : info.fecha_nacimiento,
+        d_n_i : info.d_n_i,
+      }
+      user
+        .update(userStore, {
+          where: [{ id: id }],
+        })
+        .then((result) => {
+          return res.redirect("/profiles/id/"+ id);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      return res.redirect('/');
+    }
   }
 }
 

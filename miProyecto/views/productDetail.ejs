@@ -16,14 +16,11 @@
         <h2 class="product-detail-descrption">
             <a href="/products/productsEdit/<%= product.id %>">Editar</a>
         </h2>
-        <h2>
-            <% for( let i = 0; i < product.comentarios.length; i++ ) { %>
+    </div>
+    <div>
+        <% for( let i = 0; i < product.comentarios.length; i++ ) { %>
                 <a href="/profiles/id/<%= product.comentarios[i].usuarios.id %>"><%= product.comentarios[i].usuarios.email %></a>
-            <% } %>
-        </h2>
-
-        <!-- mail del usuario -->
-
+        <% } %>
     </div>
     <div class="product-detail">
         <div class="row">

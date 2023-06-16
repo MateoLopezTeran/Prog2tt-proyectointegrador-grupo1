@@ -13,11 +13,11 @@ const productController = {
         {
           association: 'comentarios', 
           include: [{association: 'usuarios' }] },
-        
-      ] 
+      ]
     }
     producto.findByPk(primary_key, rel)
     .then(function (result) {
+      /* return res.send(result) */
       return res.render("productDetail", {product: result});
     })
     .catch(function (err) {
